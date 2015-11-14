@@ -1,0 +1,20 @@
+﻿Build started 11/14/2015 12:14:10 PM.
+     1>Project "N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\Test.c
+         Test.c
+     1>n:\wpi\cs 502 os\z502 ws\test.c(1542): warning C4244: '=': conversion from 'long' to 'INT16', possible loss of data
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\Debug\Z502.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\Debug\Z502.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\Debug\Z502.lib" /MACHINE:X86 Debug\base.obj
+         Debug\functions.obj
+         Debug\sample.obj
+         Debug\StatePrinter.obj
+         Debug\structuresStacksQueues.obj
+         Debug\Test.obj
+         Debug\Z502.obj
+         ConsoleApplication1.vcxproj -> N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\Debug\Z502.exe
+     1>Done Building Project "N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" (Build target(s)).
+
+Build succeeded.
+
+Time Elapsed 00:00:00.83

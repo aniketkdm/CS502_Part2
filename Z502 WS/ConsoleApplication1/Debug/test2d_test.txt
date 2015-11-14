@@ -1,0 +1,481 @@
+This is Simulation Version 4.20 and Hardware Version 4.20.
+
+Program called with 2 arguments: z502.exe test2d
+Calling with argument 'sample' executes the sample program.
+Simulation is running as a UniProcessor
+Add an 'M' to the command line to invoke multiprocessor operation.
+
+SVC handler: get_pid  
+Arg 0: Contents = (Decimal) 10891002,  (Hex)   A62EFA
+Arg 1: Contents = (Decimal) 19527332,  (Hex)  129F6A4
+Arg 2: Contents = (Decimal) 19527296,  (Hex)  129F680
+Program correctly returned success.
+
+
+Release 4.20:Test 2d: Pid 1
+SVC handler: ch_prior 
+Arg 0: Contents = (Decimal)       -1,  (Hex) FFFFFFFF
+Arg 1: Contents = (Decimal)        1,  (Hex)        1
+Arg 2: Contents = (Decimal) 19527296,  (Hex)  129F680
+SVC handler: create   
+Arg 0: Contents = (Decimal) 10900820,  (Hex)   A65554
+Arg 1: Contents = (Decimal) 10752435,  (Hex)   A411B3
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 19527320,  (Hex)  129F698
+Arg 4: Contents = (Decimal) 19527296,  (Hex)  129F680
+SVC handler: create   
+Arg 0: Contents = (Decimal) 10900100,  (Hex)   A65284
+Arg 1: Contents = (Decimal) 10752435,  (Hex)   A411B3
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 19527320,  (Hex)  129F698
+Arg 4: Contents = (Decimal) 19527296,  (Hex)  129F680
+SVC handler: create   
+Arg 0: Contents = (Decimal) 10900528,  (Hex)   A65430
+Arg 1: Contents = (Decimal) 10752435,  (Hex)   A411B3
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 19527320,  (Hex)  129F698
+Arg 4: Contents = (Decimal) 19527296,  (Hex)  129F680
+SVC handler: create   
+Arg 0: Contents = (Decimal) 10900536,  (Hex)   A65438
+Arg 1: Contents = (Decimal) 10752435,  (Hex)   A411B3
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 19527320,  (Hex)  129F698
+Arg 4: Contents = (Decimal) 19527296,  (Hex)  129F680
+SVC handler: create   
+Arg 0: Contents = (Decimal) 10900544,  (Hex)   A65440
+Arg 1: Contents = (Decimal) 10752435,  (Hex)   A411B3
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 19527320,  (Hex)  129F698
+Arg 4: Contents = (Decimal) 19527296,  (Hex)  129F680
+SVC handler: sleep    
+Arg 0: Contents = (Decimal)     1000,  (Hex)      3E8
+SVC handler: get_time 
+Arg 0: Contents = (Decimal) 19525020,  (Hex)  129ED9C
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+  253    2      Timer   1   READY  : 2 3 4 5 6
+                            SUS-TMR: 1
+                            
+SVC handler: get_pid  
+Arg 0: Contents = (Decimal) 10891002,  (Hex)   A62EFA
+Arg 1: Contents = (Decimal) 20575988,  (Hex)  139F6F4
+Arg 2: Contents = (Decimal) 20575964,  (Hex)  139F6DC
+Program correctly returned success.
+
+
+Release 4.20:Test 2c: Pid 2
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 4 with status 0
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 2
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 172
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 342
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 512
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 682
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: Reading back data: PID 2.
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 2
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 172
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 342
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 512
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 682
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C:    PID 2, Ends at Time 21103
+Program correctly returned success.
+ERROR:  Simulation did not end correctly

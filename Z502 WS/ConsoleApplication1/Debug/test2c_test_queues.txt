@@ -1,0 +1,116 @@
+This is Simulation Version 4.20 and Hardware Version 4.20.
+
+Program called with 2 arguments: z502.exe test2c
+Calling with argument 'sample' executes the sample program.
+Simulation is running as a UniProcessor
+Add an 'M' to the command line to invoke multiprocessor operation.
+
+SVC handler: get_pid  
+Arg 0: Contents = (Decimal) 12201722,  (Hex)   BA2EFA
+Arg 1: Contents = (Decimal) 26017432,  (Hex)  18CFE98
+Arg 2: Contents = (Decimal) 26017408,  (Hex)  18CFE80
+Program correctly returned success.
+
+
+Release 4.20:Test 2c: Pid 1
+SVC handler: disk_wrt 
+Arg 0: Contents = (Decimal)        1,  (Hex)        1
+Arg 1: Contents = (Decimal)        1,  (Hex)        1
+Arg 2: Contents = (Decimal) 20092480,  (Hex)  1329640
+Program correctly returned success.
+20139112
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 5 with status 0
+Disk Test 3: Got expected result for Disk Status
+SVC handler: get_time 
+Arg 0: Contents = (Decimal) 24704980,  (Hex)  178F7D4
+SVC handler: disk_read
+Arg 0: Contents = (Decimal)        1,  (Hex)        1
+Arg 1: Contents = (Decimal)        1,  (Hex)        1
+Arg 2: Contents = (Decimal) 20093016,  (Hex)  1329858
+Program correctly returned success.
+20139112
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 5 with status 0
+Disk Test 3: Got expected result for Disk Status
+SVC handler: get_time 
+TEST2C: PID = 1: SUCCESS READING  DiskID =1, Sector = 1
+Arg 0: Contents = (Decimal) 24704980,  (Hex)  178F7D4
+SVC handler: disk_wrt 
+Arg 0: Contents = (Decimal)        1,  (Hex)        1
+Arg 1: Contents = (Decimal)       18,  (Hex)       12
+Arg 2: Contents = (Decimal) 20092480,  (Hex)  1329640
+Program correctly returned success.
+20139112
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 5 with status 0
+SVC handler: get_time 
+Arg 0: Contents = (Decimal) 24704980,  (Hex)  178F7D4
+Disk Test 3: Got expected result for Disk Status
+SVC handler: disk_read
+Arg 0: Contents = (Decimal)        1,  (Hex)        1
+Arg 1: Contents = (Decimal)       18,  (Hex)       12
+Arg 2: Contents = (Decimal) 20093016,  (Hex)  1329858
+Program correctly returned success.
+20139112
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 5 with status 0
+Disk Test 3: Got expected result for Disk Status
+SVC handler: get_time 
+Arg 0: Contents = (Decimal) 24704980,  (Hex)  178F7D4
+SVC handler: disk_wrt 
+Arg 0: Contents = (Decimal)        1,  (Hex)        1
+Arg 1: Contents = (Decimal)       35,  (Hex)       23
+Arg 2: Contents = (Decimal) 20092480,  (Hex)  1329640
+Program correctly returned success.
+20138056
+ERROR in Z502Idle.  IDLE will wait forever since
+there is no event that will cause an interrupt.
+This occurs because when you decided to call 'Z502Idle'
+there was an event waiting - but the event was triggered
+too soon. Avoid this error by:
+1. using   'ZCALL' instead of CALL for all routines between
+   the event-check and Z502Idle
+2. limiting the work or routines (like printouts) between
+   the event-check and Z502Idle
+PANIC: Because OS502 used hardware wrong.
+Current time is 628
+
+Record of Hardware Requests:
+
+This is a history of the last events that were requested.  It
+is a ring buffer so note that the times are not in order.
+
+Column A: Time at which the OS made a request of the hardware.
+Column B: Time at which the hardware was expected to give an
+          interrupt.
+Column C: The actual time at which the hardware caused an
+          interrupt.  This should be the same or later than 
+          Column B.  If this number is -1, then the event 
+          occurred because the request was superceded by a 
+          later event.
+Column D: Device Type.  4 = Timer, 5... are disks 
+Column E: Device Status.  0 indicates no error.  You should
+          worry about anything that's not 0.
+
+Column A    Column B      Column C      Column D   Column E
+
+      0          0           0            0           0
+      0          0           0            0           0
+      0          0           0            0           0
+      0          0           0            0           0
+      0          0           0            0           0
+      0          0           0            0           0
+      0          0           0            0           0
+      0          0           0            0           0
+      0          0           0            0           0
+      0          0           0            0           0
+      0          0           0            0           0
+     47        147         149            5           0
+    183        283         284            5           0
+    319        419         420            5           0
+    455        555         556            5           0
+      0          0           0            0           0
+Exiting the program
