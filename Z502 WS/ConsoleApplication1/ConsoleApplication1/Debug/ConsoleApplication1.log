@@ -1,4 +1,4 @@
-﻿Build started 12/4/2015 9:09:04 PM.
+﻿Build started 12/4/2015 11:02:36 PM.
      1>Project "N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\functions.c
@@ -8,82 +8,82 @@
      1>n:\wpi\cs 502 os\z502 ws\functions.c(152): warning C4101: 'LockResult': unreferenced local variable
      1>n:\wpi\cs 502 os\z502 ws\functions.c(197): warning C4013: 'SetMode' undefined; assuming extern returning int
      1>n:\wpi\cs 502 os\z502 ws\functions.c(202): warning C4013: 'SuccessExpected' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(260): warning C4101: 'tmp': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(261): warning C4101: 'p': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(425): warning C4101: 'z': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(424): warning C4101: 'tmp': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(427): warning C4101: 'timerTmp': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(428): warning C4101: 'SPData': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(426): warning C4101: 'readyTmp': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(625): warning C4101: 'tProcessID': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(664): warning C4101: 'tProcessID': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(726): warning C4101: 'mmio': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(841): warning C4047: '==': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(828): warning C4101: 'LockResult': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(832): warning C4101: 'move': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(917): warning C4133: 'function': incompatible types - from 'long *' to 'const char *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(935): warning C4133: 'function': incompatible types - from 'long *' to 'const char *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(942): warning C4133: 'function': incompatible types - from 'long *' to 'const char *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(908): warning C4101: 'LockResult': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1000): warning C4133: 'function': incompatible types - from 'long *' to 'const char *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1000): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details.
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(262): warning C4101: 'tmp': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(263): warning C4101: 'p': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(427): warning C4101: 'z': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(426): warning C4101: 'tmp': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(429): warning C4101: 'timerTmp': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(430): warning C4101: 'SPData': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(428): warning C4101: 'readyTmp': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(627): warning C4101: 'tProcessID': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(666): warning C4101: 'tProcessID': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(728): warning C4101: 'mmio': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(843): warning C4047: '==': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(830): warning C4101: 'LockResult': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(834): warning C4101: 'move': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(919): warning C4133: 'function': incompatible types - from 'long *' to 'const char *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(937): warning C4133: 'function': incompatible types - from 'long *' to 'const char *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(944): warning C4133: 'function': incompatible types - from 'long *' to 'const char *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(910): warning C4101: 'LockResult': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1002): warning C4133: 'function': incompatible types - from 'long *' to 'const char *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1002): warning C4996: 'stricmp': The POSIX name for this item is deprecated. Instead, use the ISO C and C++ conformant name: _stricmp. See online help for details.
          c:\program files (x86)\windows kits\10\include\10.0.10150.0\ucrt\string.h(568): note: see declaration of 'stricmp'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(974): warning C4101: 'LockResult': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1048): warning C4033: 'only_create_process' must return a value
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1055): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1088): warning C4133: 'function': incompatible types - from 'long *' to 'const char *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1090): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1091): warning C4047: '=': 'int' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1035): warning C4101: 'LockResult': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1397): warning C4101: 'LockResult': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1393): warning C4101: 'mmio': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1490): warning C4101: 'LockResult': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1547): warning C4101: 'SPData2': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1552): warning C4101: 'LockResult': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1543): warning C4101: 'TimerStartTime': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1708): warning C4047: '==': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1715): warning C4047: 'function': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1715): warning C4024: 'getProcessFromContext': different types for formal and actual parameter 1
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1705): warning C4101: 'mmio': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1761): warning C4047: '==': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1770): warning C4047: 'function': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1770): warning C4024: 'getProcessFromContext': different types for formal and actual parameter 1
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1816): warning C4047: '!=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1820): warning C4047: 'function': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1820): warning C4024: 'getProcessFromContext': different types for formal and actual parameter 1
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1833): warning C4047: '!=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1836): warning C4047: '=': 'int' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1875): warning C4047: '=': 'int' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1912): warning C4013: 'CustomDiskRead' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1918): warning C4013: 'CustomDiskWrite' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2301): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2317): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2325): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2341): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2342): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2351): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2372): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2407): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2414): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2293): warning C4101: 'tmp': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2289): warning C4101: 'disk_buffer_write': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2288): warning C4101: 'disk_id': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2288): warning C4101: 'sector': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2461): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2475): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2481): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2500): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2501): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2510): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2542): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2553): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2450): warning C4101: 'tmp': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2446): warning C4101: 'disk_buffer_read': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2445): warning C4101: 'disk_id': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2445): warning C4101: 'sector': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(1118): warning C4715: 'only_create_process': not all control paths return a value
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2440): warning C4716: 'CustomDiskWrite': must return a value
-     1>n:\wpi\cs 502 os\z502 ws\functions.c(2581): warning C4716: 'CustomDiskRead': must return a value
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(976): warning C4101: 'LockResult': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1050): warning C4033: 'only_create_process' must return a value
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1057): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1090): warning C4133: 'function': incompatible types - from 'long *' to 'const char *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1092): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1093): warning C4047: '=': 'int' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1037): warning C4101: 'LockResult': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1399): warning C4101: 'LockResult': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1395): warning C4101: 'mmio': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1492): warning C4101: 'LockResult': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1549): warning C4101: 'SPData2': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1554): warning C4101: 'LockResult': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1545): warning C4101: 'TimerStartTime': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1710): warning C4047: '==': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1717): warning C4047: 'function': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1717): warning C4024: 'getProcessFromContext': different types for formal and actual parameter 1
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1707): warning C4101: 'mmio': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1763): warning C4047: '==': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1772): warning C4047: 'function': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1772): warning C4024: 'getProcessFromContext': different types for formal and actual parameter 1
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1818): warning C4047: '!=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1822): warning C4047: 'function': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1822): warning C4024: 'getProcessFromContext': different types for formal and actual parameter 1
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1835): warning C4047: '!=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1838): warning C4047: '=': 'int' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1877): warning C4047: '=': 'int' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1914): warning C4013: 'CustomDiskRead' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1920): warning C4013: 'CustomDiskWrite' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2303): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2319): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2327): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2343): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2344): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2353): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2374): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2409): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2416): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2295): warning C4101: 'tmp': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2291): warning C4101: 'disk_buffer_write': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2290): warning C4101: 'disk_id': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2290): warning C4101: 'sector': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2463): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2477): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2483): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2502): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2503): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2512): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2544): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2555): warning C4047: '=': 'long' differs in levels of indirection from 'long *'
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2452): warning C4101: 'tmp': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2448): warning C4101: 'disk_buffer_read': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2447): warning C4101: 'disk_id': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2447): warning C4101: 'sector': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(1120): warning C4715: 'only_create_process': not all control paths return a value
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2442): warning C4716: 'CustomDiskWrite': must return a value
+     1>n:\wpi\cs 502 os\z502 ws\functions.c(2583): warning C4716: 'CustomDiskRead': must return a value
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\Debug\Z502.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\Debug\Z502.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\Debug\Z502.lib" /MACHINE:X86 Debug\base.obj
          Debug\functions.obj
@@ -97,4 +97,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.71
+Time Elapsed 00:00:00.49

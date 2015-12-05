@@ -231,9 +231,11 @@ void print_ready_queue()
 	ready_queue *tmp = front_ready_queue;
 	int ready_position = 1;
 	////printf("initial ready position: %d\tcount_ready_queue: %d\n", ready_position, count_ready_queue);
+
 	while (ready_position <= count_ready_queue)
 	{
-		printf("ready_position: %d\tprocess_name: %s\n", ready_position, tmp->current_ready_process_addr->process_name);
+		//printf("ready_position: %d\tprocess_name: %s\n", ready_position, tmp->current_ready_process_addr->process_name);
+		printf("");
 		if (count_ready_queue > 1)
 		{
 			tmp = tmp->next_ready_process;
@@ -1399,7 +1401,7 @@ PCB_stack* dispatcher()
 
 	//printf("count of ready queue in dispatcher is %d\n", count_ready_queue);
 
-	while (count_ready_queue == 0 && count_timer_queue != 0) // && wasteTimeInt < 5)
+	while (count_ready_queue == 0 && (count_timer_queue != 0 || count_disk_queue1 !=0)) // && wasteTimeInt < 5)
 	{
 		CALL(waste_time());
 		wasteTimeInt++;
@@ -2396,12 +2398,12 @@ int CustomDiskWrite(disk_queue *front, disk_queue *rear, int *count)
 			SetMode(KERNEL_MODE);
 
 			os_create_process(create_process_data);
-		}
+		}	
 
 		// Go idle until the interrupt occurs
-		mmio.Mode = Z502Action;
+		/*mmio.Mode = Z502Action;
 		mmio.Field1 = mmio.Field2 = mmio.Field3 = 0;
-		MEM_WRITE(Z502Idle, &mmio);
+		MEM_WRITE(Z502Idle, &mmio);*/
 
 			mmio.Mode = Z502Status;
 			mmio.Field1 = rear->SystemCallData->Argument[0];
@@ -2534,10 +2536,10 @@ int CustomDiskRead(disk_queue *front, disk_queue *rear, int *count)
 		}
 
 		// Go idle until the interrupt occurs
-		mmio.Mode = Z502Action;
+		/*mmio.Mode = Z502Action;
 		mmio.Field1 = mmio.Field2 = mmio.Field3 = 0;
 		MEM_WRITE(Z502Idle, &mmio);
-			
+		*/	
 			mmio.Mode = Z502Status;
 			mmio.Field1 = rear->SystemCallData->Argument[0];
 			mmio.Field2 = mmio.Field3 = 0;
