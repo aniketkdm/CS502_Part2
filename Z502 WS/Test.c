@@ -2120,8 +2120,8 @@ void testStartCode() {
 	(*routine)();
 	// If we ever get here, it's because the thread ran to the end
 	// of a test program and wasn't terminated properly.
-	//printf("ERROR:  Simulation did not end correctly\n");
-	//exit(0);
+	printf("ERROR:  Simulation did not end correctly\n");
+	exit(0);
 }
 
 /*****************************************************************

@@ -522,6 +522,13 @@ void svc(SYSTEM_CALL_DATA *SystemCallData) {
 				
 				tmp = GetCurrentRunningProcess();
 				
+				/*************************************************************************************************
+				Below if statement checks if only process needs to be terminated or
+				if the entire simulation needs to be terminated
+				if the terminate argument in -1 and if it's not the 1st process then we terminate only the process
+				else if it's the 1st process then terminate the simulation
+				**************************************************************************************************/
+
 				if(SystemCallData->Argument[0] == -1 && tmp->PID != 1)
 				{
 					//tmp = GetCurrentRunningProcess();
