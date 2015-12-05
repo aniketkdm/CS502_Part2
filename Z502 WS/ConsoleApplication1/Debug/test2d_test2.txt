@@ -1,0 +1,622 @@
+This is Simulation Version 4.20 and Hardware Version 4.20.
+
+Program called with 2 arguments: z502.exe test2d
+Calling with argument 'sample' executes the sample program.
+Simulation is running as a UniProcessor
+Add an 'M' to the command line to invoke multiprocessor operation.
+
+SVC handler: get_pid  
+Arg 0: Contents = (Decimal)  9461602,  (Hex)   905F62
+Arg 1: Contents = (Decimal) 13629880,  (Hex)   CFF9B8
+Arg 2: Contents = (Decimal) 13629844,  (Hex)   CFF994
+Program correctly returned success.
+
+
+Release 4.20:Test 2d: Pid 1
+SVC handler: ch_prior 
+Arg 0: Contents = (Decimal)       -1,  (Hex) FFFFFFFF
+Arg 1: Contents = (Decimal)        1,  (Hex)        1
+Arg 2: Contents = (Decimal) 13629844,  (Hex)   CFF994
+SVC handler: create   
+Arg 0: Contents = (Decimal)  9471580,  (Hex)   90865C
+Arg 1: Contents = (Decimal)  9314744,  (Hex)   8E21B8
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 13629868,  (Hex)   CFF9AC
+Arg 4: Contents = (Decimal) 13629844,  (Hex)   CFF994
+SVC handler: create   
+Arg 0: Contents = (Decimal)  9471588,  (Hex)   908664
+Arg 1: Contents = (Decimal)  9314744,  (Hex)   8E21B8
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 13629868,  (Hex)   CFF9AC
+Arg 4: Contents = (Decimal) 13629844,  (Hex)   CFF994
+SVC handler: create   
+Arg 0: Contents = (Decimal)  9471596,  (Hex)   90866C
+Arg 1: Contents = (Decimal)  9314744,  (Hex)   8E21B8
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 13629868,  (Hex)   CFF9AC
+Arg 4: Contents = (Decimal) 13629844,  (Hex)   CFF994
+SVC handler: create   
+Arg 0: Contents = (Decimal)  9471604,  (Hex)   908674
+Arg 1: Contents = (Decimal)  9314744,  (Hex)   8E21B8
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 13629868,  (Hex)   CFF9AC
+Arg 4: Contents = (Decimal) 13629844,  (Hex)   CFF994
+SVC handler: create   
+Arg 0: Contents = (Decimal)  9471612,  (Hex)   90867C
+Arg 1: Contents = (Decimal)  9314744,  (Hex)   8E21B8
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 13629868,  (Hex)   CFF9AC
+Arg 4: Contents = (Decimal) 13629844,  (Hex)   CFF994
+SVC handler: sleep    
+Arg 0: Contents = (Decimal)     1000,  (Hex)      3E8
+SVC handler: get_time 
+Arg 0: Contents = (Decimal) 13627544,  (Hex)   CFF098
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+  263    3      Timer   1   READY  : 3 5 7 9 11
+                            SUS-TMR: 1
+                            
+SVC handler: get_pid  
+Arg 0: Contents = (Decimal)  9461602,  (Hex)   905F62
+Arg 1: Contents = (Decimal) 14678332,  (Hex)   DFF93C
+Arg 2: Contents = (Decimal) 14678308,  (Hex)   DFF924
+Program correctly returned success.
+
+
+Release 4.20:Test 2c: Pid 3
+Disk ID: 2 Iteration: 0
+Program correctly returned success.
+Program correctly returned success.
+
+
+Release 4.20:Test 2c: Pid 5
+Disk ID: 3 Iteration: 0
+Program correctly returned success.
+Program correctly returned success.
+
+
+Release 4.20:Test 2c: Pid 7
+Disk ID: 4 Iteration: 0
+Program correctly returned success.
+Program correctly returned success.
+
+
+Release 4.20:Test 2c: Pid 9
+Disk ID: 5 Iteration: 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+
+
+Release 4.20:Test 2c: Pid 11
+Disk ID: 6 Iteration: 0
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 9 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 10 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+TEST2C: PID = 3: SUCCESS READING  DiskID =2, Sector = 3
+Disk ID: 2 Iteration: 1
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+TEST2C: PID = 5: SUCCESS READING  DiskID =3, Sector = 5
+Disk ID: 3 Iteration: 1
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+TEST2C: PID = 7: SUCCESS READING  DiskID =4, Sector = 7
+Interrupt_handler: Found device ID 6 with status 0
+Disk ID: 4 Iteration: 1
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 2
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 2
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 2
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 4 with status 0
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+ 1365    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Disk ID: 2 Iteration: 3
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 3
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 3
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 4
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 4
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 4
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+ 2453    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 5
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 5
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 5
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+ 3540    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Disk ID: 2 Iteration: 6
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 6
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 6
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 7
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 7
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 7
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+ 4628    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 8
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 8
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 8
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+ 5715    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Disk ID: 2 Iteration: 9
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Disk ID: 3 Iteration: 9
+Program correctly returned success.
+Disk ID: 4 Iteration: 9
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 10
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 10
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 10
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+ 6803    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+TEST2C: PID = 3: SUCCESS READING  DiskID =2, Sector = 173
+Interrupt_handler: Found device ID 8 with status 0
+Disk ID: 2 Iteration: 11
+Program correctly returned success.
+TEST2C: PID = 5: SUCCESS READING  DiskID =3, Sector = 175
+Disk ID: 3 Iteration: 11
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+TEST2C: PID = 7: SUCCESS READING  DiskID =4, Sector = 177
+Disk ID: 4 Iteration: 11
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+ 7890    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Disk ID: 2 Iteration: 12
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 12
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 12
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 13
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 13
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 13
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+ 8978    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 14
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 14
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 14
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+10065    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Disk ID: 2 Iteration: 15
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Disk ID: 3 Iteration: 15
+Program correctly returned success.
+Disk ID: 4 Iteration: 15
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 16
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 16
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 16
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+11153    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 17
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 17
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 17
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+12240    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Disk ID: 2 Iteration: 18
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 18
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 18
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 19
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 19
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 19
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+13328    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 20
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 20
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 20
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+14415    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+TEST2C: PID = 3: SUCCESS READING  DiskID =2, Sector = 343
+Disk ID: 2 Iteration: 21
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+TEST2C: PID = 5: SUCCESS READING  DiskID =3, Sector = 345
+Disk ID: 3 Iteration: 21
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+TEST2C: PID = 7: SUCCESS READING  DiskID =4, Sector = 347
+Disk ID: 4 Iteration: 21
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 22
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 22
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 22
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+15503    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 23
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 23
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 23
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+16590    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Disk ID: 2 Iteration: 24
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Disk ID: 3 Iteration: 24
+Program correctly returned success.
+Disk ID: 4 Iteration: 24
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Disk ID: 2 Iteration: 25
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 25
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 25
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+17678    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Disk ID: 2 Iteration: 26
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Disk ID: 3 Iteration: 26
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Disk ID: 4 Iteration: 26
+Interrupt_handler: Found device ID 7 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 8 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 6 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 7 with status 0
+Interrupt_handler: Found device ID 4 with status 0
+Program correctly returned success.
+i: 
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+18764    3      Timer   1   READY  : 3 5
+                            SUS-TMR: 1
+                            
+Interrupt_handler: Found device ID 8 with status 0
+Disk ID: 2 Iteration: 27
+Program correctly returned success.

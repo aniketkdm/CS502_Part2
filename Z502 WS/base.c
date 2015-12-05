@@ -119,9 +119,12 @@ void InterruptHandler(void) {
 
 	if (DeviceID == TIMER_INTERRUPT)
 	{
-
+		
+		
 		//popTimerQueue();
 		GET_TIME_OF_DAY(&timeOfDay);
+
+		
 
 		// trying to get a lock
 		READ_MODIFY(MEMORY_INTERLOCK_BASE, DO_LOCK, SUSPEND_UNTIL_LOCKED,
@@ -131,6 +134,8 @@ void InterruptHandler(void) {
 		READ_MODIFY(MEMORY_INTERLOCK_BASE, DO_UNLOCK, SUSPEND_UNTIL_LOCKED,
 			&LockResult);
 		//Message("%s\n", &(Success[SPART * LockResult]));
+
+		
 
 		updateTimerQueue(timeOfDay);
 
@@ -142,7 +147,10 @@ void InterruptHandler(void) {
 			&LockResult);
 		printf("%s\n", &(Success[SPART * LockResult]));
 	*/
+		
 		popTimerQueue();
+
+		//printf("timer interrupt\n");
 
 		/*READ_MODIFY(MEMORY_INTERLOCK_BASE, DO_LOCK, SUSPEND_UNTIL_LOCKED,
 			&LockResult);
@@ -154,6 +162,10 @@ void InterruptHandler(void) {
 	*/
 		sort_timer_queue();
 
+		
+
+		//make_ready_to_run_after_timer_interrupt();
+
 		/*READ_MODIFY(MEMORY_INTERLOCK_BASE, DO_UNLOCK, SUSPEND_UNTIL_LOCKED,
 			&LockResult);
 		printf("%s\n", &(Success[SPART * LockResult]));*/
@@ -161,9 +173,25 @@ void InterruptHandler(void) {
 	}
 	READ_MODIFY(MEMORY_INTERLOCK_BASE + 30, DO_UNLOCK, SUSPEND_UNTIL_LOCKED,
 		&LockResult);
+	//make_ready_to_run_after_timer_interrupt();
+	/*tmp = GetCurrentRunningProcess();
+
+	printf("%s\n", tmp->process_name);*/
+
 	//Message("%s\n", &(Success[SPART * LockResult]));
 
 	//Message("interrupt handler completed\n");
+
+	//printf("1");
+
+	
+
+	if (DeviceID > TIMER_INTERRUPT && DeviceID < 11)
+	{
+		//CALL(50);
+		//printf("calling add to ready queue from disk interrupt\n");
+		addDiskToReady(DeviceID);
+	}
 }           // End of InterruptHandler
 
 
@@ -213,13 +241,19 @@ void FaultHandler(void) {
 
 			UINT16 *add = tmp->pageTable;
 
-			printf("pagetable: %d\n", add);
+			//printf("pagetable: %d\n", add);
 
-			printf("Status: %d\n", Status);
+			//printf("Status: %d\n", Status);
 
-			printf("Before changing the bit in fault handler: %d\n", &add[(UINT16)Status]);
-
+			//printf("Before changing the bit in fault handler: %d\n", &add[(UINT16)Status]);
+			if (iteration > 63)
+			{
+				iteration = 0;
+			}
 			phy_add = iteration;
+
+			// Below while loop will assign binary value of the physical page address
+			// in a bit-wise fashion
 
 			while (phy_add != 0 && phy_add != 1)
 			{
@@ -229,20 +263,23 @@ void FaultHandler(void) {
 				bit_pos++;
 			}
 
+			// Below binary value assignment is completed
 			add[(UINT16)Status] |= phy_add << bit_pos;
 
+			// Next physical address that can be assigned is set
 			iteration++;
 
+			// Valid bit is set to 1
 			add[(UINT16)Status] |= 1 << 15;
 
-			printf("bit value is: %d\n", add[(UINT16)Status]);
+			//printf("bit value is: %d\n", add[(UINT16)Status]);
 
-			printf("Current running process is: %s\n", tmp->process_name);
+			//printf("Current running process is: %s\n", tmp->process_name);
 
 		}
 		else
 		{
-			printf("The address is out of address\n");
+			//printf("The address is out of address\n");
 			TERMINATE_PROCESS(-2, &ErrorReturned);
 		}
 	}
@@ -306,9 +343,10 @@ void svc(SYSTEM_CALL_DATA *SystemCallData) {
 	ready_queue *readyTmp;
 	timer_queue *timerTmp;
 	disk_queue *tmp_disk;
+	long ErrorReturned;
 
 	MEMORY_MAPPED_IO mmio;
-
+	SYSTEM_CALL_DATA *pop_process_data; 
 
 	//Message("in SVC before call type: do_print: %d\n", do_print); // Message
 
@@ -363,16 +401,16 @@ void svc(SYSTEM_CALL_DATA *SystemCallData) {
 			// or terminate process will be called (positive values)
 		case SYSNUM_TERMINATE_PROCESS:
 
-			printf("entered terminate process correctly\n");
+			//printf("entered terminate process correctly\n");
 			//getch();
 			//Message("in Terminate switch case\n");
 			//Message("system argument 0: %ld, %d\n", SystemCallData->Argument[0], SystemCallData->Argument[0]);
 
 			if ((int)SystemCallData->Argument[0] < 0) {
-				printf("entered Terminate all mode\n");
+				//printf("entered Terminate all mode\n");
 				if (returnReadyQueueCount() > 1)
 				{
-					printf("ready count greater than 1\n");
+					//printf("ready count greater than 1\n");
 					tmp = GetCurrentRunningProcess();
 					SystemCallData->Argument[0] = tmp->process_context;
 					pop_process(SystemCallData);
@@ -480,12 +518,38 @@ void svc(SYSTEM_CALL_DATA *SystemCallData) {
 
 			if ((int)SystemCallData->Argument[0] < 0) {
 				//Message("entered Terminate all mode\n");
-				if (returnReadyQueueCount() > 1)
+				//if (returnReadyQueueCount() > 1)
+				
+				tmp = GetCurrentRunningProcess();
+				
+				if(SystemCallData->Argument[0] == -1 && tmp->PID != 1)
 				{
-					tmp = GetCurrentRunningProcess();
-					printf("%s\n", tmp->process_name);
+					//tmp = GetCurrentRunningProcess();
+					/*printf("%s\n", tmp->process_name);
 					SystemCallData->Argument[0] = tmp->process_context;
-					pop_process(SystemCallData);
+					pop_process(SystemCallData);*/
+					tmp->processing_status = PROCESSED;
+
+					/*mmio.Mode = Z502Action;
+					mmio.Field1 = mmio.Field2 = mmio.Field3 = 0;
+					MEM_WRITE(Z502Idle, &mmio);*/
+
+					//make_ready_to_run_after_timer_interrupt();
+
+					pop_process_data = (SYSTEM_CALL_DATA *) calloc(1, sizeof(SYSTEM_CALL_DATA));
+
+					//printf("process to be popped: %d\n", tmp->process_context);
+
+					//long *context = tmp->process_context;
+
+					pop_process_data->Argument[0] = tmp->process_context;
+					pop_process_data->Argument[1] = &ErrorReturned;
+
+					//printf(pop_process_data->Argument[0]);
+
+					pop_process(pop_process_data);
+
+					svc_term_context_switch();
 				}
 				else
 				{
@@ -804,6 +868,26 @@ void osInit(int argc, char *argv[]) {
 				os_create_process(Create_Process_Data);
 				break;
 
+			case 'l':
+				Create_Process_Data->NumberOfArguments = 5;
+				Create_Process_Data->Argument[0] = (long *) "test1l";
+				Create_Process_Data->Argument[1] = (long *)test1l;
+				Create_Process_Data->Argument[2] = 1;
+				Create_Process_Data->Argument[3] = &context;
+				Create_Process_Data->Argument[4] = &status;
+				//Message("process_name: %s\nprocess_to_run: %d \n", Create_Process_Data->Argument[0], Create_Process_Data->Argument[1]);
+				//Validate_Process_Data(Create_Process_Data);
+				//SuccessExpected(Create_Process_Data->Argument[4], "CREATE_PROCESS");
+
+				only_create_process(Create_Process_Data);
+
+				if (status != ERR_SUCCESS)
+				{
+					//Message("Exiting!!! As error has occurred");
+					return;
+				}
+				os_create_process(Create_Process_Data);
+				break;
 			}
 
 		}

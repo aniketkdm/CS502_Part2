@@ -179,8 +179,8 @@ typedef struct  {
 
 #define         TIMER_INTERRUPT                 (short)4
 #define         DISK_INTERRUPT                  (short)5
-#define         DISK_INTERRUPT_DISK1            (short)5
-#define         DISK_INTERRUPT_DISK2            (short)6
+#define         DISK_INTERRUPT_DISK1            (short)6
+#define         DISK_INTERRUPT_DISK2            (short)7
 /*      ... we could define other explicit names here           */
 
 #define         LARGEST_STAT_VECTOR_INDEX       DISK_INTERRUPT + \

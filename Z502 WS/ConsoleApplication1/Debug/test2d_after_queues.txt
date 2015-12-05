@@ -1,0 +1,1732 @@
+This is Simulation Version 4.20 and Hardware Version 4.20.
+
+Program called with 2 arguments: z502.exe test2d
+Calling with argument 'sample' executes the sample program.
+Simulation is running as a UniProcessor
+Add an 'M' to the command line to invoke multiprocessor operation.
+
+SVC handler: get_pid  
+Arg 0: Contents = (Decimal) 11546482,  (Hex)   B02F72
+Arg 1: Contents = (Decimal) 23132592,  (Hex)  160F9B0
+Arg 2: Contents = (Decimal) 23132556,  (Hex)  160F98C
+Program correctly returned success.
+
+
+Release 4.20:Test 2d: Pid 1
+SVC handler: ch_prior 
+Arg 0: Contents = (Decimal)       -1,  (Hex) FFFFFFFF
+Arg 1: Contents = (Decimal)        1,  (Hex)        1
+Arg 2: Contents = (Decimal) 23132556,  (Hex)  160F98C
+SVC handler: create   
+Arg 0: Contents = (Decimal) 11556016,  (Hex)   B054B0
+Arg 1: Contents = (Decimal) 11407795,  (Hex)   AE11B3
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 23132580,  (Hex)  160F9A4
+Arg 4: Contents = (Decimal) 23132556,  (Hex)  160F98C
+SVC handler: create   
+Arg 0: Contents = (Decimal) 11556024,  (Hex)   B054B8
+Arg 1: Contents = (Decimal) 11407795,  (Hex)   AE11B3
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 23132580,  (Hex)  160F9A4
+Arg 4: Contents = (Decimal) 23132556,  (Hex)  160F98C
+SVC handler: create   
+Arg 0: Contents = (Decimal) 11556032,  (Hex)   B054C0
+Arg 1: Contents = (Decimal) 11407795,  (Hex)   AE11B3
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 23132580,  (Hex)  160F9A4
+Arg 4: Contents = (Decimal) 23132556,  (Hex)  160F98C
+SVC handler: create   
+Arg 0: Contents = (Decimal) 11556040,  (Hex)   B054C8
+Arg 1: Contents = (Decimal) 11407795,  (Hex)   AE11B3
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 23132580,  (Hex)  160F9A4
+Arg 4: Contents = (Decimal) 23132556,  (Hex)  160F98C
+SVC handler: create   
+Arg 0: Contents = (Decimal) 11556048,  (Hex)   B054D0
+Arg 1: Contents = (Decimal) 11407795,  (Hex)   AE11B3
+Arg 2: Contents = (Decimal)        5,  (Hex)        5
+Arg 3: Contents = (Decimal) 23132580,  (Hex)  160F9A4
+Arg 4: Contents = (Decimal) 23132556,  (Hex)  160F98C
+SVC handler: sleep    
+Arg 0: Contents = (Decimal)     1000,  (Hex)      3E8
+SVC handler: get_time 
+Arg 0: Contents = (Decimal) 23130268,  (Hex)  160F09C
+Program correctly returned success.
+ Time Target   Action Run   State    Populations 
+  253    2      Timer   1   READY  : 2 3 4 5 6
+                            SUS-TMR: 1
+                            
+SVC handler: get_pid  
+Arg 0: Contents = (Decimal) 11546482,  (Hex)   B02F72
+Arg 1: Contents = (Decimal) 24180596,  (Hex)  170F774
+Arg 2: Contents = (Decimal) 24180572,  (Hex)  170F75C
+Program correctly returned success.
+
+
+Release 4.20:Test 2c: Pid 2
+Disk ID: 2 Iteration: 0
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Interrupt_handler: Found device ID 4 with status 0
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 2
+Disk ID: 2 Iteration: 1
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 2
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 3
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 4
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 5
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 6
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 7
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 8
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 9
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 10
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 172
+Disk ID: 2 Iteration: 11
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 12
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 13
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 14
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 15
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 16
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 17
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 18
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 19
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 20
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 342
+Disk ID: 2 Iteration: 21
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 22
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 23
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 24
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 25
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 26
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 27
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 28
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 29
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 30
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 512
+Disk ID: 2 Iteration: 31
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 32
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 33
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 34
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 35
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 36
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 37
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 38
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 39
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 40
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 682
+Disk ID: 2 Iteration: 41
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 42
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 43
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 44
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 45
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 46
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 47
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 48
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Disk ID: 2 Iteration: 49
+Program correctly returned success.
+count: 0
+2st element added
+calling write
+rear disk ID: 2
+Count in write: 1
+Disk Test 1: Got expected result for Disk Status
+Disk Test 2: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: Reading back data: PID 2.
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 2
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 172
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 342
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 512
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C: PID = 2: SUCCESS READING  DiskID =2, Sector = 682
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+Program correctly returned success.
+count: 0
+2st element added
+calling read
+SysArg[0]: 2
+Front Disk ID: 2
+rear disk ID: 2
+count in read: 1
+Disk Test 1: Got expected result for Disk Status
+Interrupt_handler: Found device ID 6 with status 0
+Disk Test 3: Got expected result for Disk Status
+TEST2C:    PID 2, Ends at Time 19180
+Program correctly returned success.
+first
+ERROR:  Simulation did not end correctly

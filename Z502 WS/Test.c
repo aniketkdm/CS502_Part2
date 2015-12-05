@@ -938,6 +938,23 @@ your Operating System.
 
 **************************************************************************/
 void test1l(void) {
+	long ErrorReturned, ProcessID1;
+	
+	printf("in test1l\n");
+
+	CREATE_PROCESS("test1l_1", test1a, NORMAL_PRIORITY, &ProcessID1,
+		&ErrorReturned);
+	SuccessExpected(ErrorReturned, "CREATE_PROCESS");
+
+	int DiskID = (2 / 2) % MAX_NUMBER_OF_DISKS + 1;
+	//Sector = ( Iterations + (Sector * 177)) % NUM_LOGICAL_SECTORS;
+	//Sector = OurProcessID + (Iterations * 17) % NUM_LOGICAL_SECTORS; // Bugfix 4.11
+	
+	//SLEEP(50);
+
+	printf("test1l: %d\n", DiskID);
+
+	TERMINATE_PROCESS(-1, &ErrorReturned);
 }                                               // End test1l
 
 /**************************************************************************
@@ -1228,7 +1245,7 @@ void test2c(void) {
 
 		//TERMINATE_PROCESS(-1, &ErrorReturned);
 
-		printf("Disk ID: %d Iteration: %d\n", DiskID, Iterations);
+		//printf("Disk ID: %d Iteration: %d\n", DiskID, Iterations);
 
 		DISK_WRITE(DiskID, Sector, (char*)(DataWritten->char_data));
 
@@ -1338,8 +1355,8 @@ void test2d(void) {
 	CREATE_PROCESS("first", test2c, 5, &ProcessID1, &ErrorReturned);
 	CREATE_PROCESS("second", test2c, 5, &ProcessID1, &ErrorReturned);
 	CREATE_PROCESS("third", test2c, 5, &ProcessID1, &ErrorReturned);
-	CREATE_PROCESS("fourth", test2c, 5, &ProcessID1, &ErrorReturned);
-	CREATE_PROCESS("fifth", test2c, 5, &ProcessID1, &ErrorReturned);
+	//CREATE_PROCESS("fourth", test2c, 5, &ProcessID1, &ErrorReturned);
+	//CREATE_PROCESS("fifth", test2c, 5, &ProcessID1, &ErrorReturned);
 
 	// In these next cases, we will loop until EACH of the child processes
 	// has terminated.  We know it terminated because for a while we get
@@ -1347,15 +1364,24 @@ void test2d(void) {
 	// process no longer exists.
 	// We do this for each process so we can get decent statistics on completion
 
-	SLEEP(SleepTime);
+	//SLEEP(SleepTime);
+
+	//TERMINATE_PROCESS(-1, &ErrorReturned);
+
+	//int i = 0;
 
 	ErrorReturned = ERR_SUCCESS;      // Modified 07/2014 Rev 4.10
 	while (ErrorReturned == ERR_SUCCESS) {
 		SLEEP(SleepTime);
+		//printf("returned after timer interrupt\n");
 		GET_PROCESS_ID("first", &ProcessID1, &ErrorReturned);
+
+		//printf("i: \n", i);
 	}
 
-	printf("CAME HERE\n");
+	//printf("CAME HERE\n");
+
+	//TERMINATE_PROCESS(-1, &ErrorReturned);
 
 	GET_TIME_OF_DAY(&CurrentTime);
 	printf("Test2d, PID %ld, Found Process -first- completed at %ld\n\n",
@@ -1366,13 +1392,14 @@ void test2d(void) {
 	ErrorReturned = ERR_SUCCESS;
 	while (ErrorReturned == ERR_SUCCESS) {
 		SLEEP(SleepTime);
+		printf("2nd\n");
 		GET_PROCESS_ID("second", &ProcessID1, &ErrorReturned);
 	}
 	GET_TIME_OF_DAY(&CurrentTime);
 	printf("Test2d, PID %ld, Found Process -second- completed at %ld\n\n",
 		OurProcessID, CurrentTime);
 
-	TERMINATE_PROCESS(-1, &ErrorReturned);
+	//TERMINATE_PROCESS(-1, &ErrorReturned);
 
 	ErrorReturned = ERR_SUCCESS;
 	while (ErrorReturned == ERR_SUCCESS) {
@@ -1382,6 +1409,9 @@ void test2d(void) {
 	GET_TIME_OF_DAY(&CurrentTime);
 	printf("Test2d, PID %ld, Found Process -third- completed at %ld\n\n",
 		OurProcessID, CurrentTime);
+
+	//TERMINATE_PROCESS(-2, &ErrorReturned);
+
 	ErrorReturned = ERR_SUCCESS;
 	while (ErrorReturned == ERR_SUCCESS) {
 		SLEEP(SleepTime);
@@ -1391,6 +1421,9 @@ void test2d(void) {
 	printf("Test2d, PID %ld, Found Process -fourth- completed at %ld\n\n",
 		OurProcessID, CurrentTime);
 	ErrorReturned = ERR_SUCCESS;
+
+
+
 	while (ErrorReturned == ERR_SUCCESS) {
 		SLEEP(SleepTime);
 		GET_PROCESS_ID("fifth", &ProcessID1, &ErrorReturned);
@@ -1451,11 +1484,13 @@ void test2e(void) {
 			printf("PID= %ld  address= %ld   written= %d   read= %d\n",
 				OurProcessID, MemoryAddress, DataWritten, DataRead);
 		}
+		printf("memory address: %ld\n", MemoryAddress);
 
 		// It makes life more fun!! to write the data again
 		MEM_WRITE(MemoryAddress, &DataWritten); // Write the data
 
 	}    // End of for loop
+	//TERMINATE_PROCESS(-1, &ErrorReturned);
 
 		 // Now read back the data we've written and paged
 		 // We try to jump around a bit in choosing addresses we read back
@@ -1543,6 +1578,8 @@ void test2f(void) {
 		Test2f_Statistics(OurProcessID);
 
 	}   // End of for Loops
+
+	//TERMINATE_PROCESS(-1, &ErrorReturned);
 
 	for (Loops = 0; Loops < LOOP_COUNT; Loops++) {
 
@@ -2083,8 +2120,8 @@ void testStartCode() {
 	(*routine)();
 	// If we ever get here, it's because the thread ran to the end
 	// of a test program and wasn't terminated properly.
-	printf("ERROR:  Simulation did not end correctly\n");
-	exit(0);
+	//printf("ERROR:  Simulation did not end correctly\n");
+	//exit(0);
 }
 
 /*****************************************************************

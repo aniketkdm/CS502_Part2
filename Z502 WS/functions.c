@@ -11,6 +11,7 @@
 // 1 - print outputs; 0 - omit printing
 int output = 0;
 
+int PID_no = 0;
 
 /**********************************************************************************
 Message
@@ -22,7 +23,7 @@ void Message(char toPrint[10000])
 {
 	if (output == 1)
 	{
-		printf("%s", toPrint);
+		//printf("%s", toPrint);
 	}
 }
 
@@ -67,6 +68,8 @@ disk_queue *front_disk_queue6 = NULL;
 disk_queue *rear_disk_queue6 = NULL;
 disk_queue *front_disk_queue7 = NULL;
 disk_queue *rear_disk_queue7 = NULL;
+disk_queue *front_disk_queue8 = NULL;
+disk_queue *rear_disk_queue8 = NULL;
 
 int count_disk_queue0 = 0;
 int count_disk_queue1 = 0;
@@ -76,6 +79,7 @@ int count_disk_queue4 = 0;
 int count_disk_queue5 = 0;
 int count_disk_queue6 = 0;
 int count_disk_queue7 = 0;
+int count_disk_queue8 = 0;
 
 /***********************************************************************************************
 WASTE_TIME
@@ -221,12 +225,15 @@ void print_ready_queue()
 	INT32 LockResult;
 	char Success[] = "      Action Failed\0        Action Succeeded";
 
+	READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_LOCK, SUSPEND_UNTIL_LOCKED,
+		&LockResult);
+
 	ready_queue *tmp = front_ready_queue;
 	int ready_position = 1;
-	//Message("initial ready position: %d\tcount_ready_queue: %d\n", ready_position, count_ready_queue);
+	////printf("initial ready position: %d\tcount_ready_queue: %d\n", ready_position, count_ready_queue);
 	while (ready_position <= count_ready_queue)
 	{
-		//Message("ready_position: %d\tprocess_name: %s\n", ready_position, tmp->current_ready_process_addr->process_name);
+		printf("ready_position: %d\tprocess_name: %s\n", ready_position, tmp->current_ready_process_addr->process_name);
 		if (count_ready_queue > 1)
 		{
 			tmp = tmp->next_ready_process;
@@ -234,6 +241,9 @@ void print_ready_queue()
 		
 		ready_position++;
 	}
+
+	READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_UNLOCK, SUSPEND_UNTIL_LOCKED,
+		&LockResult);
 	
 }
 
@@ -253,7 +263,19 @@ void sort_ready_queue()
 	INT32 LockResult;
 	char Success[] = "      Action Failed\0        Action Succeeded";
 
-	//Message("in sort ready queue, count_ready_queue: %d\n", count_ready_queue);
+	
+	//printf("%s\n", &(Success[SPART * LockResult]));
+
+	//printf("in sort ready queue, count_ready_queue: %d\n", count_ready_queue);
+
+	//printf("before sorting ready queue\n");
+
+	CALL(50);
+
+	print_ready_queue();
+
+	READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_LOCK, SUSPEND_UNTIL_LOCKED,
+		&LockResult);
 
 	if (count_ready_queue > 1)
 	{
@@ -263,6 +285,8 @@ void sort_ready_queue()
 			temp = front_ready_queue;
 			for (j = 1; j <= count_ready_queue - i; j++)
 			{
+				CALL(50);
+
 				if (temp->current_ready_process_addr->priority > temp->next_ready_process->current_ready_process_addr->priority)
 				{
 					//Message("current priority higher than next processes priority\n");
@@ -281,33 +305,48 @@ void sort_ready_queue()
 				{
 					if (temp->next_ready_process != NULL)
 					{
+						//printf("%s %s\n", temp->current_ready_process_addr->process_name, temp->next_ready_process->current_ready_process_addr->process_name);
 						temp = temp->next_ready_process;
 					}
 				}
+				//Message("temp process name: %s\n", temp->current_ready_process_addr->process_name);
+
+				CALL(100);
+
 				mover = front_ready_queue;
 				while (mover->next_ready_process != NULL)
 				{
 					mover = mover->next_ready_process;
 				}
+
+				
+				//CALL(100);
+
 				rear_ready_queue = mover;
+
+				//CALL(100);
 
 				while (mover->prev_ready_process != NULL)
 				{
+					//printf("%s %s\n", mover->current_ready_process_addr->process_name, mover->prev_ready_process->current_ready_process_addr->process_name);
 					mover = mover->prev_ready_process;
+					
 				}
 				front_ready_queue = mover;
 			}
 		}
 		//Message("front: %s\trear: %s\n", front_ready_queue->current_ready_process_addr->process_name, rear_ready_queue->current_ready_process_addr->process_name);
-		//Message("sorting ready queue completed\n");
+		//printf("sorting ready queue completed\n");
 
-		print_ready_queue();
+		//print_ready_queue();
 	}
 	else
 	{
 		//Message("in sort ready queue: count of ready queue is %d; No sorting required. returning\n", count_ready_queue);
 	}
 	
+	READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_UNLOCK, SUSPEND_UNTIL_LOCKED,
+		&LockResult);
 
 	return;
 }
@@ -481,11 +520,17 @@ void push_ready_queue(PCB_stack *P)
 
 	INT32 LockResult;
 	char Success[] = "      Action Failed\0        Action Succeeded";
+
+	READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_LOCK, SUSPEND_UNTIL_LOCKED,
+		&LockResult);
 		
 	if (count_ready_queue == 0)
 	{
 		count_ready_queue++;
 		front_ready_queue = rear_ready_queue = R;
+
+		READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_UNLOCK, SUSPEND_UNTIL_LOCKED,
+			&LockResult);
 
 	}
 	else
@@ -494,15 +539,163 @@ void push_ready_queue(PCB_stack *P)
 		R->prev_ready_process = rear_ready_queue;
 		rear_ready_queue->next_ready_process = R;
 		rear_ready_queue = R;
+
+		READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_UNLOCK, SUSPEND_UNTIL_LOCKED,
+			&LockResult);
 		
 		sort_ready_queue();
 		
 	}
 
+	//print_ready_queue();
+	
+}
+
+void pop_ready_queue_with_arg(PCB_stack *tmp)
+{
+	int cnt = count_ready_queue;
+	ready_queue *tReady = front_ready_queue;
+
+	INT32 LockResult;
+	char Success[] = "      Action Failed\0        Action Succeeded";
+
+	READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_LOCK, SUSPEND_UNTIL_LOCKED,
+		&LockResult);
+
+	while (cnt != 0)
+	{
+		if (tReady->current_ready_process_addr->PID == tmp->PID)
+		{
+			break;
+		}
+		else
+		{
+			if (cnt > 1)
+			{
+				tReady = tReady->next_ready_process;
+			}
+		}
+		cnt--;
+	}
+
+	if (cnt > 0)
+	{
+		if (tReady == front_ready_queue && tReady == rear_ready_queue)
+		{
+			count_ready_queue--;
+			front_ready_queue = rear_ready_queue = NULL;
+		}
+		else if (tReady == front_ready_queue)
+		{
+			count_ready_queue--;
+			front_ready_queue = front_ready_queue->next_ready_process;
+			front_ready_queue->prev_ready_process = NULL;
+		}
+		else if (tReady == rear_ready_queue)
+		{
+			count_ready_queue--;
+			rear_ready_queue = rear_ready_queue->prev_ready_process;
+			rear_ready_queue->next_ready_process = NULL;
+		}
+		else
+		{
+			count_ready_queue--;
+			tReady->prev_ready_process->next_ready_process = tReady->next_ready_process;
+			tReady->next_ready_process->prev_ready_process = tReady->prev_ready_process;
+		}
+
+		//printf("popped %s from Ready Queue\n", tReady->current_ready_process_addr->process_name);
+
+		READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_UNLOCK, SUSPEND_UNTIL_LOCKED,
+			&LockResult);
+
+		//print_ready_queue();
+	}
+	else
+	{
+		//printf("Disk process to be popped from Ready not found\n");
+	}
 	
 
-	print_ready_queue();
-	
+}
+
+void addDiskToReady(DeviceID)
+{
+	PCB_stack *tmp = top_process;
+	int tPid, tDiskID, tProcessID, cnt = PCB_COUNT;
+
+	tDiskID = DeviceID - 4;
+
+	if (tDiskID == 1)
+	{
+		tPid = 1;
+	}
+	else
+	{
+		tPid = (2 * tDiskID) - 1;
+	}
+
+	while (cnt >= 1)
+	{
+		if (tmp->PID == tPid)
+		{
+			break;
+		}
+		if (cnt > 1)
+		{
+			tmp = tmp->prev_process;
+		}
+		cnt--;
+	}
+
+	if (cnt >= 1)
+	{
+		push_ready_queue(tmp);
+	}
+	else
+	{
+		//printf("Disk process to add to ready queue not found\n");
+	}
+}
+
+void popDiskFromReady(tDiskID)
+{
+	PCB_stack *tmp = top_process;
+	int tPid, tProcessID, cnt = PCB_COUNT;
+
+	if (tDiskID == 1)
+	{
+		tPid = 1;
+	}
+	else
+	{
+		tPid = (2 * tDiskID) - 1;
+	}
+
+	while (cnt >= 1)
+	{
+		if (tmp->PID == tPid)
+		{
+			break;
+		}
+		if (cnt > 1)
+		{
+			tmp = tmp->prev_process;
+		}
+		cnt--;
+	}
+
+	if (cnt >= 1)
+	{
+		//printf("popping %s from ready queue\n", tmp->process_name);
+		pop_ready_queue_with_arg(tmp);
+	}
+	else
+	{
+		//printf("Disk process to add to ready queue not found\n");
+	}
+		
+
 }
 
 /***********************************************************************************************
@@ -516,9 +709,45 @@ void make_ready_to_run()
 {
 	PCB_stack *ProcessToReady;
 
+	//Message("making ready to run\n");
+
 	ProcessToReady = GetCurrentRunningProcess();
 
+	//Message("%s\n", ProcessToReady->process_name);
+
 	push_ready_queue(ProcessToReady);
+
+}
+
+void make_ready_to_run_after_timer_interrupt()
+{
+	PCB_stack *ProcessToReady = top_process;
+	int i; 
+	MEMORY_MAPPED_IO mmio;
+
+	for (i = 1; i <= PCB_COUNT; i++)
+	{
+		if (ProcessToReady->priority == 1)
+			break;
+		else
+			ProcessToReady = ProcessToReady->prev_process;
+	}
+
+	push_ready_queue(ProcessToReady);
+
+	/*
+	//Message("starting context for: %s\n", create_process_data->Argument[0]);
+
+	mmio.Field1 = ProcessToReady->process_context;
+
+	//tmp->processing_status = PROCESSING;
+
+	//Start Context
+	mmio.Mode = Z502StartContext;
+
+	mmio.Field2 = START_NEW_CONTEXT_AND_SUSPEND;
+	//mmio.Field3 = mmio.Field4 = 0;
+	MEM_WRITE(Z502Context, &mmio);     // Start up the context*/
 
 }
 
@@ -534,6 +763,13 @@ void remove_PCB_ready_queue(PCB_stack *temp)
 {
 	INT32 LockResult;
 	char Success[] = "      Action Failed\0        Action Succeeded";
+
+	READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_LOCK, SUSPEND_UNTIL_LOCKED,
+		&LockResult);
+
+	//printf("CAME HERE");
+
+	CALL(100);
 
 	ready_queue *tmp = front_ready_queue;
 	int cnt = count_ready_queue;
@@ -564,11 +800,18 @@ void remove_PCB_ready_queue(PCB_stack *temp)
 			count_ready_queue--;
 			
 			free(tmp);
+
+			READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_UNLOCK, SUSPEND_UNTIL_LOCKED,
+				&LockResult);
+
 			return;
 		}
 		cnt--;
 		tmp = tmp->next_ready_process;
 	}
+
+	READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_UNLOCK, SUSPEND_UNTIL_LOCKED,
+		&LockResult);
 
 	//Message("%s not found on ready queue, hence not removed\n", temp->process_name);
 
@@ -599,7 +842,11 @@ void pop_process(SYSTEM_CALL_DATA *pop_process_data)
 		{
 			// if the process is being removed from the PCB,
 			// it should also be removed from the ready_queue
+
+			//printf("process to be found: %s\n", temp->process_name);
 			
+			CALL(50);
+
 			remove_PCB_ready_queue(temp);
 
 			if (temp == top_process)
@@ -609,7 +856,11 @@ void pop_process(SYSTEM_CALL_DATA *pop_process_data)
 					top_process = temp->prev_process;
 					//Message("process context: %d popped out of PCB successfully\n", temp->process_context);
 					*pop_process_data->Argument[1] = ERR_SUCCESS;
-					free(temp);
+
+					
+					CALL(50);
+
+					//free(temp);
 					PCB_COUNT--;
 					return;
 				}
@@ -631,7 +882,7 @@ void pop_process(SYSTEM_CALL_DATA *pop_process_data)
 			*pop_process_data->Argument[1] = ERR_SUCCESS;
 			
 			
-			free(temp);
+			//free(temp);
 			PCB_COUNT--;
 
 			return;
@@ -703,7 +954,7 @@ void get_process_id(SYSTEM_CALL_DATA *ReturnProcessData)
 	}
 	else
 	{
-		printf("process not found in get_process_id\n");
+		//Message("process not found in get_process_id\n");
 		*ReturnProcessData->Argument[2] = ERR_PROCESS_NOT_FOUND;
 		
 	}
@@ -762,7 +1013,7 @@ void Validate_Process_Data(SYSTEM_CALL_DATA *create_process_data)
 	//Message("Number of processes already created: %d\n", PCB_COUNT);
 	if (PCB_COUNT >= 13) // Limiting the number of processes that can be created
 	{
-		printf("Max number of processes allowed reached\n");
+		//Message("Max number of processes allowed reached\n");
 		*create_process_data->Argument[4] = ERR_MAX_PROCESSES_REACHED;
 		//Message("validating count %d\n", *create_process_data->Argument[4]);
 
@@ -807,7 +1058,33 @@ long only_create_process(SYSTEM_CALL_DATA *create_process_data)
 	MEM_WRITE(Z502Context, &mmio);   // Start of Make Context Sequence
 
 	//Here we enter the process context details in the PCB
-	P->PID = ++PCB_COUNT;
+	++PCB_COUNT;
+
+	if (PCB_COUNT == 1)
+	{
+		P->PID = PCB_COUNT;
+		PID_no = P->PID;
+	}
+	else
+	{
+		PID_no = PID_no + 2;
+
+		/*if (PCB_COUNT == 2)
+		{
+			PID_no = 9;
+		}
+		else if (PCB_COUNT == 3)
+		{
+			PID_no = 11;
+		}*/
+			
+		
+
+		P->PID = PID_no;
+
+		
+	}
+	
 	strcpy(P->process_name, create_process_data->Argument[0]);
 	
 	P->process_to_run = create_process_data->Argument[1];
@@ -859,11 +1136,15 @@ void os_create_process(SYSTEM_CALL_DATA *create_process_data)
 
 	//Start Context
 	mmio.Mode = Z502StartContext;
+
+	SetMode(KERNEL_MODE);
 	
 	mmio.Field2 = START_NEW_CONTEXT_AND_SUSPEND;
 	//mmio.Field3 = mmio.Field4 = 0;
 	MEM_WRITE(Z502Context, &mmio);     // Start up the context
 }
+
+
 
 /***********************************************************************************************
 POP_READY_QUEUE
@@ -874,6 +1155,9 @@ void pop_ready_queue()
 {
 	INT32 LockResult;
 	char Success[] = "      Action Failed\0        Action Succeeded";
+
+	READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_LOCK, SUSPEND_UNTIL_LOCKED,
+		&LockResult);
 
 	ready_queue *tmp = front_ready_queue;
 	//Message("in pop, count_ready_queue: %d\n", count_ready_queue);
@@ -889,11 +1173,85 @@ void pop_ready_queue()
 	}
 	free(tmp);
 	count_ready_queue--;
-	//Message("Count of ready queue after popping: %d\n", count_ready_queue);
+	//printf("Count of ready queue after popping: %d\n", count_ready_queue);
+
+	//print_ready_queue();
+
+	READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_UNLOCK, SUSPEND_UNTIL_LOCKED,
+		&LockResult);
 
 	return;
 }
 
+void pop_current_running_ready_queue()
+{
+	PCB_stack *tmp;
+	ready_queue *rtmp; 
+	int cnt = count_ready_queue;
+
+	INT32 LockResult;
+	char Success[] = "      Action Failed\0        Action Succeeded";
+
+	READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_LOCK, SUSPEND_UNTIL_LOCKED,
+		&LockResult);
+
+	rtmp = front_ready_queue;
+
+	tmp = GetCurrentRunningProcess();
+
+	while (cnt >= 1)
+	{
+		
+		if (tmp == rtmp->current_ready_process_addr)
+		{
+			break;
+		}
+
+		if (rtmp != rear_ready_queue)
+		{
+			rtmp = rtmp->next_ready_process;
+		}
+		
+		cnt--;
+			
+	}
+	
+	if (cnt >= 1)
+	{	// we came here because the process to be removed was found
+	
+		if (rtmp == front_ready_queue && rtmp == rear_ready_queue)
+		{
+			count_ready_queue--;
+			front_ready_queue = rear_ready_queue = NULL;
+		}
+		else if(rtmp == front_ready_queue)
+		{
+			count_ready_queue--;
+			front_ready_queue = front_ready_queue->next_ready_process;
+			front_ready_queue->prev_ready_process = NULL;
+		}
+		else if (rtmp == rear_ready_queue)
+		{
+			count_ready_queue--;
+			rear_ready_queue = rear_ready_queue->prev_ready_process;
+			rear_ready_queue->next_ready_process = NULL;
+		}
+		else
+		{
+			count_ready_queue--;
+			rtmp->prev_ready_process->next_ready_process = rtmp->next_ready_process;
+			rtmp->next_ready_process->prev_ready_process = rtmp->prev_ready_process;
+		}
+	}
+	else
+	{
+		//printf("ready process to be removed not found");
+	}
+
+	READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_UNLOCK, SUSPEND_UNTIL_LOCKED,
+		&LockResult);
+
+}
 
 /***********************************************************************************************
 POPTIMERQUEUE
@@ -906,15 +1264,22 @@ void popTimerQueue()
 	INT32 LockResult; timer_queue *temp;
 	char Success[] = "      Action Failed\0        Action Succeeded";
 
+	//printf("pop timer\n");
+
 	READ_MODIFY(MEMORY_INTERLOCK_BASE, DO_LOCK, SUSPEND_UNTIL_LOCKED,
 		&LockResult);
 	//Message("%s\n", &(Success[SPART * LockResult]));
 
+	//printf("pop timer 2\n");
 
 	temp = front_timer_queue;
 	
-
 	int cnt = count_timer_queue;
+
+	/*if (cnt == 0)
+	{
+		make_ready_to_run_after_timer_interrupt();
+	}*/
 
 	while (cnt != 0)
 	{
@@ -923,6 +1288,9 @@ void popTimerQueue()
 			// updating the process status
 			// to indicate that it is processed
 			temp->current_timer_process->processing_status = PROCESSED;
+
+			push_ready_queue(temp->current_timer_process);
+
 			//Message("%s is being popped out of the timer queue as it's timer has expired\n", temp->current_timer_process->process_name);
 			count_timer_queue--;
 			// entering this if condition means 
@@ -1020,7 +1388,7 @@ Until the ready queue has a process that can be dispatched
 
 PCB_stack* dispatcher()
 {
-	PCB_stack *process_to_dispatch;// = (PCB_stack *)malloc(1 * sizeof(PCB_stack));
+	PCB_stack *process_to_dispatch;
 	
 	MEMORY_MAPPED_IO mmio;
 	int wasteTimeInt = 0;
@@ -1028,6 +1396,8 @@ PCB_stack* dispatcher()
 
 	INT32 LockResult;
 	char Success[] = "      Action Failed\0        Action Succeeded";
+
+	//printf("count of ready queue in dispatcher is %d\n", count_ready_queue);
 
 	while (count_ready_queue == 0 && count_timer_queue != 0) // && wasteTimeInt < 5)
 	{
@@ -1058,6 +1428,42 @@ PCB_stack* dispatcher()
 	
 }
 
+void svc_term_context_switch()
+{
+	PCB_stack *ready_process_start;
+	SYSTEM_CALL_DATA *create_process_data = (SYSTEM_CALL_DATA *)calloc(1, sizeof(SYSTEM_CALL_DATA));
+	long context;
+
+	//printf("printing ready queue\n");
+
+	print_ready_queue();
+
+	ready_process_start = dispatcher();
+
+
+	
+
+	if (ready_process_start != NULL)
+	{
+		//printf("process dispatched after terminate: %s\n", ready_process_start->process_name);
+
+		context = ready_process_start->process_context;
+		//Message("process returned by dispatcher: %s\n", ready_process_start->process_name);
+
+		create_process_data->NumberOfArguments = 5;
+		create_process_data->Argument[0] = (long *)ready_process_start->process_name;
+		create_process_data->Argument[1] = NULL;
+		create_process_data->Argument[2] = NULL;
+		create_process_data->Argument[3] = &context;
+		create_process_data->Argument[4] = (long *)ERR_SUCCESS;
+
+
+		os_create_process(create_process_data);
+	}
+
+
+}
+
 /***********************************************************************************************
 ADDTOTIMERQUEUE
 Adds the process to the rear of the timer queue,
@@ -1068,7 +1474,8 @@ To sort the timer queue w.r.t the required time to sleep
 void AddToTimerQueue(long sleep_time)
 {
 	PCB_stack *current_process; 
-	timer_queue *new_timer_process = (timer_queue *)malloc(1 * sizeof(timer_queue));
+	//timer_queue *new_timer_process = (timer_queue *)malloc(1 * sizeof(timer_queue));
+	timer_queue *new_timer_process = (timer_queue *)calloc(1,sizeof(timer_queue));
 	long timeOfDay;
 
 	//Message("****");
@@ -1169,7 +1576,15 @@ void CustomStartTimer(long start_time, long sleep_time)
 		Status = mmio.Field1;
 	} while (Status != DEVICE_IN_USE);
 
-	
+	// Go idle until the interrupt occurs
+	/*mmio.Mode = Z502Action;
+	mmio.Field1 = mmio.Field2 = mmio.Field3 = 0;
+	MEM_WRITE(Z502Idle, &mmio);
+
+	if (Status == DEVICE_IN_USE)
+		return;
+*/
+	//Message("After starting timer\n");
 	
 	/*if (Status == DEVICE_IN_USE)
 		//Message("Got expected result (DEVICE_IN_USE) for Status of Timer\n");
@@ -1184,10 +1599,10 @@ void CustomStartTimer(long start_time, long sleep_time)
 
 	//Message("checking the status before starting the timer\n");*/
 
-	if (count_timer_queue != 0 && count_ready_queue == 0)
+	/*if (count_timer_queue != 0 && count_ready_queue == 0)
 	{
 		make_ready_to_run();
-	}
+	}*/
 
 	//Message("calling dispatcher after start timer\n");
 
@@ -1199,7 +1614,12 @@ void CustomStartTimer(long start_time, long sleep_time)
 	tmp = GetCurrentRunningProcess();
 
 	SPData.CurrentlyRunningPID = tmp->PID;
-	SPData.TargetPID = front_ready_queue->current_ready_process_addr->PID;
+
+	if (count_ready_queue > 0)
+	{
+		SPData.TargetPID = front_ready_queue->current_ready_process_addr->PID;
+	}
+	
 
 	SPData.NumberOfReadyProcesses = returnReadyQueueCount();   // Processes ready to run
 	
@@ -1257,6 +1677,15 @@ void CustomStartTimer(long start_time, long sleep_time)
 
 		os_create_process(create_process_data);
 	}
+
+	// Go idle until the interrupt occurs
+	/*mmio.Mode = Z502Action;
+	mmio.Field1 = mmio.Field2 = mmio.Field3 = 0;
+	MEM_WRITE(Z502Idle, &mmio);
+
+	if (Status == DEVICE_IN_USE)
+	return;
+	*/
 	
 	
 	//Message("halt ended\n");
@@ -1278,7 +1707,7 @@ void CustomSuspendProcess(SYSTEM_CALL_DATA *SystemCallData)
 	// Checking if we are trying to suspend ourselves. 
 	if (SystemCallData->Argument[0] == -1)
 	{
-		printf("Trying to suspend ourselves is illegal. Causes Error.\n");
+		//Message("Trying to suspend ourselves is illegal. Causes Error.\n");
 		*SystemCallData->Argument[1] = ERR_SUSPENDING_OURSELVES;
 		return;
 	}
@@ -1288,7 +1717,7 @@ void CustomSuspendProcess(SYSTEM_CALL_DATA *SystemCallData)
 	// validating if the process exists
 	if (tmp == NULL)
 	{
-		printf("process doesn't exist.\n");
+		//Message("process doesn't exist.\n");
 		*SystemCallData->Argument[1] = ERR_PROCESS_NOT_FOUND;
 		return;
 		
@@ -1298,7 +1727,7 @@ void CustomSuspendProcess(SYSTEM_CALL_DATA *SystemCallData)
 		// Checking if the process is already suspended
 		if (tmp->processing_status == SUSPENDED)
 		{
-			printf("Trying to suspend already suspended process. This causes an error\n");
+			//Message("Trying to suspend already suspended process. This causes an error\n");
 			*SystemCallData->Argument[1] = ERR_ALREADY_SUSPENDED;
 
 		}
@@ -1306,7 +1735,7 @@ void CustomSuspendProcess(SYSTEM_CALL_DATA *SystemCallData)
 		{
 			// Suspending the process
 			tmp->processing_status = SUSPENDED;
-			printf("%d suspended successfully\n", tmp->process_context);
+			//Message("%d suspended successfully\n", tmp->process_context);
 			*SystemCallData->Argument[1] = ERR_SUCCESS;
 		}
 
@@ -1331,7 +1760,7 @@ void CustomResumeProcess(SYSTEM_CALL_DATA *SystemCallData)
 
 	if (tmp->process_context == SystemCallData->Argument[0])
 	{
-		printf("Trying to resume currently running process. Causes Error.\n");
+		//Message("Trying to resume currently running process. Causes Error.\n");
 		*SystemCallData->Argument[1] = ERR_RESUMING_OURSELVES;
 		return;
 	}
@@ -1343,7 +1772,7 @@ void CustomResumeProcess(SYSTEM_CALL_DATA *SystemCallData)
 
 	if (tmp == NULL)
 	{
-		printf("Process doesn't exist\n");
+		//Message("Process doesn't exist\n");
 		*SystemCallData->Argument[1] = ERR_PROCESS_NOT_FOUND;
 		return;
 
@@ -1353,13 +1782,13 @@ void CustomResumeProcess(SYSTEM_CALL_DATA *SystemCallData)
 		// Checks if the process is already resumed
 		if (tmp->processing_status == ON_READY_QUEUE)
 		{
-			printf("Trying to resume already resumed process. Causes error\n");
+			//Message("Trying to resume already resumed process. Causes error\n");
 			*SystemCallData->Argument[1] = ERR_ALREADY_RESUMED;
 		}
 		else
 		{
 			tmp->processing_status = ON_READY_QUEUE;
-			printf("%d resumed successsfully\n", tmp->process_context);
+			//Message("%d resumed successsfully\n", tmp->process_context);
 			*SystemCallData->Argument[1] = ERR_SUCCESS;
 		}
 		
@@ -1394,7 +1823,7 @@ void CustomChangePriority(SYSTEM_CALL_DATA *SystemCallData)
 		if (tmp == NULL)
 		{
 			// If the process doesn't exist, then we return an error
-			printf("process doesn't exist\n");
+			//Message("process doesn't exist\n");
 			*SystemCallData->Argument[2] = ERR_PROCESS_NOT_FOUND;
 			return;
 		}
@@ -1405,7 +1834,7 @@ void CustomChangePriority(SYSTEM_CALL_DATA *SystemCallData)
 			{
 				// valid priority
 				tmp->priority = SystemCallData->Argument[1];
-				printf("priority of %s changed to %d successfully\n", tmp->process_name, tmp->priority);
+				//Message("priority of %s changed to %d successfully\n", tmp->process_name, tmp->priority);
 				*SystemCallData->Argument[2] = ERR_SUCCESS;
 				
 				READ_MODIFY(MEMORY_INTERLOCK_BASE + 100, DO_LOCK, SUSPEND_UNTIL_LOCKED,
@@ -1423,7 +1852,7 @@ void CustomChangePriority(SYSTEM_CALL_DATA *SystemCallData)
 			else
 			{
 				// illegal priority
-				printf("new priority value is incorrect\n");
+				//Message("new priority value is incorrect\n");
 				*SystemCallData->Argument[2] = ERR_INCORRECT_PRIORITY;
 				return;
 			}
@@ -1448,230 +1877,406 @@ void addToDiskQueue(SYSTEM_CALL_DATA *SystemCallData, char r_w)
 	switch (switch_int)
 	{
 	case 0:
+		//printf("Disk Queue: %d\n", switch_int);
+
 		tmp_disk->SystemCallData = SystemCallData;
 		tmp_disk->curr_process_PCB = tmp;
-		if (front_disk_queue0 == NULL && rear_disk_queue0 == NULL)
+
+		//Message("count: %d\n", count_disk_queue0);
+
+		//if (front_disk_queue0 == NULL && rear_disk_queue0 == NULL)
+		if (count_disk_queue0 == 0)
 		{
+			//Message("1st element added\n");
 			front_disk_queue0 = rear_disk_queue0 = tmp_disk;
+			front_disk_queue0->next_Disk_op = rear_disk_queue0->next_Disk_op = NULL;
+			count_disk_queue0++;
 		}
 		else
 		{
+			//Message("only front added\n");
 			front_disk_queue0->next_Disk_op = tmp_disk;
 			front_disk_queue0 = tmp_disk;
+			count_disk_queue0++;
 		}
+
+		popDiskFromReady(switch_int);
 
 		if (r_w == 'r')
 		{
-			CustomDiskRead(front_disk_queue0, rear_disk_queue0);
+
+			//Message("calling read\n");
+			//Message("SysArg[0]: %d\n", SystemCallData->Argument[0]);
+			//Message("Front Disk ID: %d\n", front_disk_queue0->SystemCallData->Argument[0]);
+			//Message("rear disk ID: %d\n", rear_disk_queue0->SystemCallData->Argument[0]);
+			CustomDiskRead(front_disk_queue0, rear_disk_queue0, &count_disk_queue0);
 		}
 		else
 		{
-			CustomDiskWrite(front_disk_queue0, rear_disk_queue0);
+			//Message("calling write\n");
+			//Message("rear disk ID: %d\n", rear_disk_queue0->SystemCallData->Argument[0]);
+			CustomDiskWrite(front_disk_queue0, rear_disk_queue0, &count_disk_queue0);
 		}
 
 		break;
 
 	case 1:
-		//printf("%d\n", SystemCallData);
+		////printf("Disk Queue: %d\n", switch_int);
 
 		tmp_disk->SystemCallData = SystemCallData;
 		tmp_disk->curr_process_PCB = tmp;
 
-		printf("count: %d\n", count_disk_queue1);
+		//Message("count: %d\n", count_disk_queue1);
 
 		//if (front_disk_queue1 == NULL && rear_disk_queue1 == NULL)
 		if(count_disk_queue1 == 0)
 		{
-			printf("1st element added\n");
+			//Message("1st element added\n");
 			front_disk_queue1 = rear_disk_queue1 = tmp_disk;
 			front_disk_queue1->next_Disk_op = rear_disk_queue1->next_Disk_op = NULL;
 			count_disk_queue1++;
 		}
 		else
 		{
-			printf("only front added\n");
+			//Message("only front added\n");
 			front_disk_queue1->next_Disk_op = tmp_disk;
 			front_disk_queue1 = tmp_disk;
 			count_disk_queue1++;
 		}
 
+		popDiskFromReady(switch_int);
+
 		if (r_w == 'r')
 		{
 
-			printf("calling read\n");
-			printf("SysArg[0]: %d\n", SystemCallData->Argument[0]);
-			printf("Front Disk ID: %d\n", front_disk_queue1->SystemCallData->Argument[0]);
-			printf("rear disk ID: %d\n", rear_disk_queue1->SystemCallData->Argument[0]);
+			//Message("calling read\n");
+			//Message("SysArg[0]: %d\n", SystemCallData->Argument[0]);
+			//Message("Front Disk ID: %d\n", front_disk_queue1->SystemCallData->Argument[0]);
+			//Message("rear disk ID: %d\n", rear_disk_queue1->SystemCallData->Argument[0]);
 			CustomDiskRead(front_disk_queue1, rear_disk_queue1, &count_disk_queue1);
 		}
 		else
 		{
-			printf("calling write\n");
-			printf("rear disk ID: %d\n", rear_disk_queue1->SystemCallData->Argument[0]);
+			//Message("calling write\n");
+			//Message("rear disk ID: %d\n", rear_disk_queue1->SystemCallData->Argument[0]);
 			CustomDiskWrite(front_disk_queue1, rear_disk_queue1, &count_disk_queue1);
 		}
 
 		break;
 
 	case 2:
-		//printf("%d\n", SystemCallData);
+		////Message("%d\n", SystemCallData);
 
 		tmp_disk->SystemCallData = SystemCallData;
 		tmp_disk->curr_process_PCB = tmp;
-		if (front_disk_queue2 == NULL && rear_disk_queue2 == NULL)
+		
+		//Message("count: %d\n", count_disk_queue2);
+
+		//if (front_disk_queue2 == NULL && rear_disk_queue2 == NULL)
+		if (count_disk_queue2 == 0)
 		{
+			//Message("2st element added\n");
 			front_disk_queue2 = rear_disk_queue2 = tmp_disk;
+			front_disk_queue2->next_Disk_op = rear_disk_queue2->next_Disk_op = NULL;
+			count_disk_queue2++;
 		}
 		else
 		{
+			//Message("only front added\n");
 			front_disk_queue2->next_Disk_op = tmp_disk;
 			front_disk_queue2 = tmp_disk;
+			count_disk_queue2++;
 		}
+
+		popDiskFromReady(switch_int);
 
 		if (r_w == 'r')
 		{
-			CustomDiskRead(front_disk_queue2, rear_disk_queue2);
+
+			//Message("calling read\n");
+			//Message("SysArg[0]: %d\n", SystemCallData->Argument[0]);
+			//Message("Front Disk ID: %d\n", front_disk_queue2->SystemCallData->Argument[0]);
+			//Message("rear disk ID: %d\n", rear_disk_queue2->SystemCallData->Argument[0]);
+			CustomDiskRead(front_disk_queue2, rear_disk_queue2, &count_disk_queue2);
 		}
 		else
 		{
-			CustomDiskWrite(front_disk_queue2, rear_disk_queue2);
+			//Message("calling write\n");
+			//Message("rear disk ID: %d\n", rear_disk_queue2->SystemCallData->Argument[0]);
+			CustomDiskWrite(front_disk_queue2, rear_disk_queue2, &count_disk_queue2);
 		}
 
 		break;
 
 	case 3:
-		//printf("%d\n", SystemCallData);
+		////Message("%d\n", SystemCallData);
 
 		tmp_disk->SystemCallData = SystemCallData;
 		tmp_disk->curr_process_PCB = tmp;
-		if (front_disk_queue3 == NULL && rear_disk_queue3 == NULL)
+		
+		//Message("count: %d\n", count_disk_queue3);
+
+		//if (front_disk_queue3 == NULL && rear_disk_queue3 == NULL)
+		if (count_disk_queue3 == 0)
 		{
+			//Message("3st element added\n");
 			front_disk_queue3 = rear_disk_queue3 = tmp_disk;
+			front_disk_queue3->next_Disk_op = rear_disk_queue3->next_Disk_op = NULL;
+			count_disk_queue3++;
 		}
 		else
 		{
+			//Message("only front added\n");
 			front_disk_queue3->next_Disk_op = tmp_disk;
 			front_disk_queue3 = tmp_disk;
+			count_disk_queue3++;
 		}
+
+		popDiskFromReady(switch_int);
 
 		if (r_w == 'r')
 		{
-			CustomDiskRead(front_disk_queue3, rear_disk_queue3);
+
+			//Message("calling read\n");
+			//Message("SysArg[0]: %d\n", SystemCallData->Argument[0]);
+			//Message("Front Disk ID: %d\n", front_disk_queue3->SystemCallData->Argument[0]);
+			//Message("rear disk ID: %d\n", rear_disk_queue3->SystemCallData->Argument[0]);
+			CustomDiskRead(front_disk_queue3, rear_disk_queue3, &count_disk_queue3);
 		}
 		else
 		{
-			CustomDiskWrite(front_disk_queue3, rear_disk_queue3);
+			//Message("calling write\n");
+			//Message("rear disk ID: %d\n", rear_disk_queue3->SystemCallData->Argument[0]);
+			CustomDiskWrite(front_disk_queue3, rear_disk_queue3, &count_disk_queue3);
 		}
 
 		break;
 
 	case 4:
-		//printf("%d\n", SystemCallData);
+		////Message("%d\n", SystemCallData);
 
 		tmp_disk->SystemCallData = SystemCallData;
 		tmp_disk->curr_process_PCB = tmp;
-		if (front_disk_queue4 == NULL && rear_disk_queue4 == NULL)
+
+		//Message("count: %d\n", count_disk_queue4);
+
+		//if (front_disk_queue4 == NULL && rear_disk_queue4 == NULL)
+		if (count_disk_queue4 == 0)
 		{
+			//Message("4st element added\n");
 			front_disk_queue4 = rear_disk_queue4 = tmp_disk;
+			front_disk_queue4->next_Disk_op = rear_disk_queue4->next_Disk_op = NULL;
+			count_disk_queue4++;
 		}
 		else
 		{
+			//Message("only front added\n");
 			front_disk_queue4->next_Disk_op = tmp_disk;
 			front_disk_queue4 = tmp_disk;
+			count_disk_queue4++;
 		}
+
+		popDiskFromReady(switch_int);
 
 		if (r_w == 'r')
 		{
-			CustomDiskRead(front_disk_queue4, rear_disk_queue4);
+
+			//Message("calling read\n");
+			//Message("SysArg[0]: %d\n", SystemCallData->Argument[0]);
+			//Message("Front Disk ID: %d\n", front_disk_queue4->SystemCallData->Argument[0]);
+			//Message("rear disk ID: %d\n", rear_disk_queue4->SystemCallData->Argument[0]);
+			CustomDiskRead(front_disk_queue4, rear_disk_queue4, &count_disk_queue4);
 		}
 		else
 		{
-			CustomDiskWrite(front_disk_queue4, rear_disk_queue4);
+			//Message("calling write\n");
+			//Message("rear disk ID: %d\n", rear_disk_queue4->SystemCallData->Argument[0]);
+			CustomDiskWrite(front_disk_queue4, rear_disk_queue4, &count_disk_queue4);
 		}
+
 
 		break;
 
 	case 5:
-		//printf("%d\n", SystemCallData);
+		////Message("%d\n", SystemCallData);
 
 		tmp_disk->SystemCallData = SystemCallData;
 		tmp_disk->curr_process_PCB = tmp;
-		if (front_disk_queue5 == NULL && rear_disk_queue5 == NULL)
+
+		//Message("count: %d\n", count_disk_queue5);
+
+		//if (front_disk_queue5 == NULL && rear_disk_queue5 == NULL)
+		if (count_disk_queue5 == 0)
 		{
+			//Message("1st element added\n");
 			front_disk_queue5 = rear_disk_queue5 = tmp_disk;
+			front_disk_queue5->next_Disk_op = rear_disk_queue5->next_Disk_op = NULL;
+			count_disk_queue5++;
 		}
 		else
 		{
+			//Message("only front added\n");
 			front_disk_queue5->next_Disk_op = tmp_disk;
 			front_disk_queue5 = tmp_disk;
+			count_disk_queue5++;
 		}
+
+		popDiskFromReady(switch_int);
 
 		if (r_w == 'r')
 		{
-			CustomDiskRead(front_disk_queue5, rear_disk_queue5);
+
+			//Message("calling read\n");
+			//Message("SysArg[0]: %d\n", SystemCallData->Argument[0]);
+			//Message("Front Disk ID: %d\n", front_disk_queue5->SystemCallData->Argument[0]);
+			//Message("rear disk ID: %d\n", rear_disk_queue5->SystemCallData->Argument[0]);
+			CustomDiskRead(front_disk_queue5, rear_disk_queue5, &count_disk_queue5);
 		}
 		else
 		{
-			CustomDiskWrite(front_disk_queue5, rear_disk_queue5);
+			//Message("calling write\n");
+			//Message("rear disk ID: %d\n", rear_disk_queue5->SystemCallData->Argument[0]);
+			CustomDiskWrite(front_disk_queue5, rear_disk_queue5, &count_disk_queue5);
 		}
+
 
 		break;
 
 	case 6:
-		//printf("%d\n", SystemCallData);
+		////Message("%d\n", SystemCallData);
 
 		tmp_disk->SystemCallData = SystemCallData;
 		tmp_disk->curr_process_PCB = tmp;
-		if (front_disk_queue6 == NULL && rear_disk_queue6 == NULL)
+
+		//Message("count: %d\n", count_disk_queue6);
+
+		//if (front_disk_queue6 == NULL && rear_disk_queue6 == NULL)
+		if (count_disk_queue6 == 0)
 		{
+			//Message("6st element added\n");
 			front_disk_queue6 = rear_disk_queue6 = tmp_disk;
+			front_disk_queue6->next_Disk_op = rear_disk_queue6->next_Disk_op = NULL;
+			count_disk_queue6++;
 		}
 		else
 		{
+			//Message("only front added\n");
 			front_disk_queue6->next_Disk_op = tmp_disk;
 			front_disk_queue6 = tmp_disk;
+			count_disk_queue6++;
 		}
+
+		popDiskFromReady(switch_int);
 
 		if (r_w == 'r')
 		{
-			CustomDiskRead(front_disk_queue6, rear_disk_queue6);
+
+			//Message("calling read\n");
+			//Message("SysArg[0]: %d\n", SystemCallData->Argument[0]);
+			//Message("Front Disk ID: %d\n", front_disk_queue6->SystemCallData->Argument[0]);
+			//Message("rear disk ID: %d\n", rear_disk_queue6->SystemCallData->Argument[0]);
+			CustomDiskRead(front_disk_queue6, rear_disk_queue6, &count_disk_queue6);
 		}
 		else
 		{
-			CustomDiskWrite(front_disk_queue6, rear_disk_queue6);
+			//Message("calling write\n");
+			//Message("rear disk ID: %d\n", rear_disk_queue6->SystemCallData->Argument[0]);
+			CustomDiskWrite(front_disk_queue6, rear_disk_queue6, &count_disk_queue6);
 		}
+
 
 		break;
 
 	case 7:
-		//printf("%d\n", SystemCallData);
+		////Message("%d\n", SystemCallData);
 
 		tmp_disk->SystemCallData = SystemCallData;
 		tmp_disk->curr_process_PCB = tmp;
-		if (front_disk_queue7 == NULL && rear_disk_queue7 == NULL)
+
+		//Message("count: %d\n", count_disk_queue7);
+
+		//if (front_disk_queue7 == NULL && rear_disk_queue7 == NULL)
+		if (count_disk_queue7 == 0)
 		{
+			//Message("7st element added\n");
 			front_disk_queue7 = rear_disk_queue7 = tmp_disk;
+			front_disk_queue7->next_Disk_op = rear_disk_queue7->next_Disk_op = NULL;
+			count_disk_queue7++;
 		}
 		else
 		{
+			//Message("only front added\n");
 			front_disk_queue7->next_Disk_op = tmp_disk;
 			front_disk_queue7 = tmp_disk;
+			count_disk_queue7++;
 		}
+
+		popDiskFromReady(switch_int);
 
 		if (r_w == 'r')
 		{
-			CustomDiskRead(front_disk_queue7, rear_disk_queue7);
+
+			//Message("calling read\n");
+			//Message("SysArg[0]: %d\n", SystemCallData->Argument[0]);
+			//Message("Front Disk ID: %d\n", front_disk_queue7->SystemCallData->Argument[0]);
+			//Message("rear disk ID: %d\n", rear_disk_queue7->SystemCallData->Argument[0]);
+			CustomDiskRead(front_disk_queue7, rear_disk_queue7, &count_disk_queue7);
 		}
 		else
 		{
-			CustomDiskWrite(front_disk_queue7, rear_disk_queue7);
+			//Message("calling write\n");
+			//Message("rear disk ID: %d\n", rear_disk_queue7->SystemCallData->Argument[0]);
+			CustomDiskWrite(front_disk_queue7, rear_disk_queue7, &count_disk_queue7);
 		}
 
 		break;
 
+	case 8:
+		////Message("%d\n", SystemCallData);
+
+		tmp_disk->SystemCallData = SystemCallData;
+		tmp_disk->curr_process_PCB = tmp;
+
+		//Message("count: %d\n", count_disk_queue8);
+
+		//if (front_disk_queue7 == NULL && rear_disk_queue7 == NULL)
+		if (count_disk_queue8 == 0)
+		{
+			//Message("1st element added\n");
+			front_disk_queue8 = rear_disk_queue8 = tmp_disk;
+			front_disk_queue8->next_Disk_op = rear_disk_queue8->next_Disk_op = NULL;
+			count_disk_queue8++;
+		}
+		else
+		{
+			//Message("only front added\n");
+			front_disk_queue8->next_Disk_op = tmp_disk;
+			front_disk_queue8 = tmp_disk;
+			count_disk_queue8++;
+		}
+
+		popDiskFromReady(switch_int);
+
+		if (r_w == 'r')
+		{
+
+			//Message("calling read\n");
+			//Message("SysArg[0]: %d\n", SystemCallData->Argument[0]);
+			//Message("Front Disk ID: %d\n", front_disk_queue8->SystemCallData->Argument[0]);
+			//Message("rear disk ID: %d\n", rear_disk_queue8->SystemCallData->Argument[0]);
+			CustomDiskRead(front_disk_queue8, rear_disk_queue8, &count_disk_queue8);
+		}
+		else
+		{
+			//Message("calling write\n");
+			//Message("rear disk ID: %d\n", rear_disk_queue8->SystemCallData->Argument[0]);
+			CustomDiskWrite(front_disk_queue8, rear_disk_queue8, &count_disk_queue8);
+		}
+
+		break;
 
 	default:
-		printf("Incorrect disk Number: %d\n", switch_int);
+		//Message("Incorrect disk Number: %d\n", switch_int);
 		break;
 	}
 }
@@ -1682,10 +2287,14 @@ int CustomDiskWrite(disk_queue *front, disk_queue *rear, int *count)
 	MEMORY_MAPPED_IO mmio;        // Structure used for hardware interface
 	INT32 disk_id, sector; /* Used for disk requests */
 	char disk_buffer_write[PGSIZE];
+	PCB_stack *ready_process_start;// = (PCB_stack *)calloc(1, sizeof(PCB_stack));
+	SYSTEM_CALL_DATA *create_process_data = (SYSTEM_CALL_DATA *)calloc(1, sizeof(SYSTEM_CALL_DATA));
+	long context;
+	PCB_stack *tmp;
 
-	printf("Count in write: %d\n", *count);
+	//Message("Count in write: %d\n", *count);
 
-	CALL(100);
+	//CALL(100);
 	
 	// Now see that the disk IS NOT running
 	mmio.Mode = Z502Status;
@@ -1695,14 +2304,14 @@ int CustomDiskWrite(disk_queue *front, disk_queue *rear, int *count)
 
 	while (mmio.Field2 != DEVICE_FREE)        // Disk should be free
 	{
-		//printf("Write: Device is not free 1\n");
+		//Message("Write: Device is not free 1\n");
 
 			// Go idle until the interrupt occurs
 			mmio.Mode = Z502Action;
 			mmio.Field1 = mmio.Field2 = mmio.Field3 = 0;
 			MEM_WRITE(Z502Idle, &mmio);
 
-			CALL(100);
+			//CALL(100);
 
 			mmio.Mode = Z502Status;
 			mmio.Field1 = rear->SystemCallData->Argument[0];
@@ -1717,10 +2326,14 @@ int CustomDiskWrite(disk_queue *front, disk_queue *rear, int *count)
 	mmio.Field2 = mmio.Field3 = 0;
 	MEM_READ(Z502Disk, &mmio);
 	if (mmio.Field2 == DEVICE_FREE)    // Disk hasn't been used - should be free
-		printf("Disk Test 1: Got expected result for Disk Status\n");
+	{
+		//printf("Disk Test 1: Got expected result for Disk Status\n");
+	}
 	else
-		printf(
-			"Disk Test 1: Got erroneous result for Disk Status - Device not free.\n");
+	{
+		//printf("Disk Test 1: Got erroneous result for Disk Status - Device not free.\n");
+	}
+		
 
 	
 	// Start the disk by writing a block of data
@@ -1739,11 +2352,13 @@ int CustomDiskWrite(disk_queue *front, disk_queue *rear, int *count)
 	mmio.Field2 = mmio.Field3 = 0;
 	MEM_READ(Z502Disk, &mmio);
 	if (mmio.Field2 == DEVICE_IN_USE)        // Disk should report being used
-		printf("Disk Test 2: Got expected result for Disk Status\n");
+	{
+		//printf("Disk Test 2: Got expected result for Disk Status\n");
+	}
 	else
 	{
-		printf("Disk Test 2: Got erroneous result for Disk Status\n");
-		printf("Disk is not running\n");
+		//printf("Disk Test 2: Got erroneous result for Disk Status\n");
+		//Message("Disk is not running\n");
 		//TERMINATE_PROCESS
 	}
 		
@@ -1761,12 +2376,32 @@ int CustomDiskWrite(disk_queue *front, disk_queue *rear, int *count)
 	while (mmio.Field2 != DEVICE_FREE)        // Disk should be free
 	{
 		
-			// Go idle until the interrupt occurs
-			mmio.Mode = Z502Action;
-			mmio.Field1 = mmio.Field2 = mmio.Field3 = 0;
-			MEM_WRITE(Z502Idle, &mmio);
+		ready_process_start = dispatcher();
 
-			CALL(100);
+		
+
+		if (ready_process_start != NULL)
+		{
+			//printf("ready process dispatched in the Disk Write: %s\n", ready_process_start->process_name);
+			context = ready_process_start->process_context;
+			//Message("process returned by dispatcher: %s\n", ready_process_start->process_name);
+
+			create_process_data->NumberOfArguments = 5;
+			create_process_data->Argument[0] = (long *)ready_process_start->process_name;
+			create_process_data->Argument[1] = NULL;
+			create_process_data->Argument[2] = NULL;
+			create_process_data->Argument[3] = &context;
+			create_process_data->Argument[4] = (long *)ERR_SUCCESS;
+
+			SetMode(KERNEL_MODE);
+
+			os_create_process(create_process_data);
+		}
+
+		// Go idle until the interrupt occurs
+		mmio.Mode = Z502Action;
+		mmio.Field1 = mmio.Field2 = mmio.Field3 = 0;
+		MEM_WRITE(Z502Idle, &mmio);
 
 			mmio.Mode = Z502Status;
 			mmio.Field1 = rear->SystemCallData->Argument[0];
@@ -1781,7 +2416,7 @@ int CustomDiskWrite(disk_queue *front, disk_queue *rear, int *count)
 	MEM_READ(Z502Disk, &mmio);
 	if (mmio.Field2 == DEVICE_FREE)        // Disk should be free
 	{
-		printf("Disk Test 3: Got expected result for Disk Status\n");
+		//printf("Disk Test 3: Got expected result for Disk Status\n");
 		if (rear->next_Disk_op == NULL)
 		{
 			// if we come here, then it means rear and front point to the same object
@@ -1794,11 +2429,14 @@ int CustomDiskWrite(disk_queue *front, disk_queue *rear, int *count)
 		}
 
 		*count = *count - 1;
+
+		//tmp = GetCurrentRunningProcess();
+		//push_ready_queue(tmp);
 	}
 	else
-		printf(
-			"Disk Test 3: Got erroneous result for Disk Status - Device not free.\n");
-	
+	{
+		//printf("Disk Test 3: Got erroneous result for Disk Status - Device not free.\n");
+	}
 }
 
 int CustomDiskRead(disk_queue *front, disk_queue *rear, int *count)
@@ -1806,12 +2444,17 @@ int CustomDiskRead(disk_queue *front, disk_queue *rear, int *count)
 	MEMORY_MAPPED_IO mmio;        // Structure used for hardware interface
 	INT32 disk_id, sector; /* Used for disk requests */
 	long disk_buffer_read[PGSIZE];
+	PCB_stack *ready_process_start;// = (PCB_stack *)calloc(1, sizeof(PCB_stack));
+	SYSTEM_CALL_DATA *create_process_data = (SYSTEM_CALL_DATA *)calloc(1, sizeof(SYSTEM_CALL_DATA));
+	long context;
+	PCB_stack *tmp;
 
-	printf("count in read: %d\n", *count);
 
-	CALL(100);
+	//Message("count in read: %d\n", *count);
 
-	//printf("Entered disk read\n");
+	//CALL(100);
+
+	//Message("Entered disk read\n");
 
 	// Now see that the disk IS NOT running
 	mmio.Mode = Z502Status;
@@ -1826,7 +2469,7 @@ int CustomDiskRead(disk_queue *front, disk_queue *rear, int *count)
 			mmio.Field1 = mmio.Field2 = mmio.Field3 = 0;
 			MEM_WRITE(Z502Idle, &mmio);
 
-			CALL(100);
+			//CALL(100);
 
 		mmio.Mode = Z502Status;
 		mmio.Field1 = rear->SystemCallData->Argument[0];
@@ -1839,11 +2482,16 @@ int CustomDiskRead(disk_queue *front, disk_queue *rear, int *count)
 	mmio.Field2 = mmio.Field3 = 0;
 	MEM_READ(Z502Disk, &mmio);
 	if (mmio.Field2 == DEVICE_FREE)    // Disk hasn't been used - should be free
-		printf("Disk Test 1: Got expected result for Disk Status\n");
+	{
+		//Message("Disk Test 1: Got expected result for Disk Status\n");
+	}
+		
 	else
-		printf(
-			"Disk Test 1: Got erroneous result for Disk Status - Device not free.\n");
+	{
+	//	Message("Disk Test 1: Got erroneous result for Disk Status - Device not free.\n");
 
+	}
+		
 
 	/* Now we read the data back from the disk.  If we're lucky,
 	we'll read the same thing we wrote!                     */
@@ -1865,12 +2513,30 @@ int CustomDiskRead(disk_queue *front, disk_queue *rear, int *count)
 	
 	while (mmio.Field2 != DEVICE_FREE)        // Disk should be free
 	{
-			// Go idle until the interrupt occurs
-			mmio.Mode = Z502Action;
-			mmio.Field1 = mmio.Field2 = mmio.Field3 = 0;
-			MEM_WRITE(Z502Idle, &mmio);
+		ready_process_start = dispatcher();
 
-			CALL(100);
+		if (ready_process_start != NULL)
+		{
+			//printf("ready process dispatched in the Disk Read: %s\n", ready_process_start->process_name);
+			context = ready_process_start->process_context;
+			//Message("process returned by dispatcher: %s\n", ready_process_start->process_name);
+
+			create_process_data->NumberOfArguments = 5;
+			create_process_data->Argument[0] = (long *)ready_process_start->process_name;
+			create_process_data->Argument[1] = NULL;
+			create_process_data->Argument[2] = NULL;
+			create_process_data->Argument[3] = &context;
+			create_process_data->Argument[4] = (long *)ERR_SUCCESS;
+
+			//SetMode(KERNEL_MODE);
+
+			os_create_process(create_process_data);
+		}
+
+		// Go idle until the interrupt occurs
+		mmio.Mode = Z502Action;
+		mmio.Field1 = mmio.Field2 = mmio.Field3 = 0;
+		MEM_WRITE(Z502Idle, &mmio);
 			
 			mmio.Mode = Z502Status;
 			mmio.Field1 = rear->SystemCallData->Argument[0];
@@ -1889,7 +2555,7 @@ int CustomDiskRead(disk_queue *front, disk_queue *rear, int *count)
 	MEM_READ(Z502Disk, &mmio);
 	if (mmio.Field2 == DEVICE_FREE)        // Disk should be free
 	{
-		printf("Disk Test 3: Got expected result for Disk Status\n");
+		//Message("Disk Test 3: Got expected result for Disk Status\n");
 		if (rear->next_Disk_op == NULL)
 		{
 			// if we come here, then it means rear and front point to the same object
@@ -1902,9 +2568,14 @@ int CustomDiskRead(disk_queue *front, disk_queue *rear, int *count)
 		}
 
 		*count = *count - 1;
+
+		//tmp = GetCurrentRunningProcess();
+		//push_ready_queue(tmp);
 	}
 	else
-		printf(
-			"Disk Test 3: Got erroneous result for Disk Status - Device not free.\n");
+	{
+		//Message("Disk Test 3: Got erroneous result for Disk Status - Device not free.\n");
 
+	}
+		
 }
