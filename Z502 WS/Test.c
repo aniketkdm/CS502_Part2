@@ -1553,6 +1553,44 @@ void test2f(void) {
 	GET_PROCESS_ID("", &OurProcessID, &ErrorReturned);
 	printf("\n\nRelease %s:Test 2f: Pid %ld\n", CURRENT_REL, OurProcessID);
 
+	for (int i = 0; i < 65; i++)
+	{
+		MemoryAddress = 16 * i;
+		DataWritten = i;
+		MEM_WRITE(MemoryAddress, &DataWritten);
+	}
+
+	//TERMINATE_PROCESS(-2, &ErrorReturned);
+
+	/*for (int i = 1; i < 64; i++)
+	{
+		MemoryAddress = 16 * i;
+		
+		MEM_READ(MemoryAddress, &DataRead);
+
+		if (DataRead == i)
+		{
+			printf("Correct Data Read back\n");
+		}
+		else
+		{
+			printf("Incorrect Data Read at: %d\n", i);
+		}
+	}*/
+
+	MEM_READ(MemoryAddress, &DataRead);
+
+	if (DataRead == 0)
+	{
+		printf("Correct Data Read back\n");
+	}
+	else
+	{
+		printf("Incorrect Data Read at: %d\n", i);
+	}
+
+	TERMINATE_PROCESS(-2, &ErrorReturned);
+
 	for (Index = 0; Index < LOOP_COUNT; Index++) // Bugfix Rel 4.03  12/1/2013
 		mtr->page_touched[Index] = 0;
 	for (Loops = 0; Loops < LOOP_COUNT; Loops++) {
@@ -1572,14 +1610,15 @@ void test2f(void) {
 		if (DataRead != DataWritten)
 			printf("AN ERROR HAS OCCURRED: READ NOT EQUAL WRITE.\n");
 
-
 		// Record in our data-base that we've accessed this page
 		mtr->page_touched[(short)Loops] = PageNumber;
 		Test2f_Statistics(OurProcessID);
 
+		//TERMINATE_PROCESS(-1, &ErrorReturned);
+
 	}   // End of for Loops
 
-	//TERMINATE_PROCESS(-1, &ErrorReturned);
+	TERMINATE_PROCESS(-1, &ErrorReturned);
 
 	for (Loops = 0; Loops < LOOP_COUNT; Loops++) {
 
