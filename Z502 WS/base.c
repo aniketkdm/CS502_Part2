@@ -60,8 +60,39 @@ int victimFrames[64];
 
 void writeShadowTable(int vPgNo)
 {
-	if (shadowTableRow < 1024)
+	int i;
+
+	for (i = 0; i < 1024; i++)
 	{
+		if (shadowTable[i][0] == vPgNo)
+		{
+			break;
+		}
+	}
+
+	if (i < 1024)
+	{
+		// virtual page entry already exists in shadow table. Need to update instead of insert
+		if (shadowTable[i][0] == 0)
+		{
+			shadowTable[shadowTableRow][0] = vPgNo;
+			shadowTable[shadowTableRow][1] = shadowDiskID;
+			shadowTable[shadowTableRow][2] = shadowSector;
+
+			shadowTableRow++;
+			shadowSector++;
+			if (shadowSector > 1599)
+			{
+				shadowDiskID++;
+				shadowSector = 1;
+			}
+		}
+
+
+	}
+	else
+	{
+
 		shadowTable[shadowTableRow][0] = vPgNo;
 		shadowTable[shadowTableRow][1] = shadowDiskID;
 		shadowTable[shadowTableRow][2] = shadowSector;
@@ -74,11 +105,11 @@ void writeShadowTable(int vPgNo)
 			shadowSector = 1;
 		}
 	}
-	else
+	/*else
 	{
 		// we should not enter here
 		printf("shadow table Row: %d; Terminating..\n", shadowTableRow);
-	}
+	}*/
 
 
 }

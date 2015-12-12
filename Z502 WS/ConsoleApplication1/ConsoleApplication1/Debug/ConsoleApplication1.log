@@ -1,63 +1,9 @@
-﻿Build started 12/12/2015 12:09:20 AM.
+﻿Build started 12/12/2015 1:45:36 AM.
      1>Project "N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\base.c
-         base.c
-     1>n:\wpi\cs 502 os\z502 ws\base.c(134): warning C4013: 'SetMode' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(230): warning C4013: 'updateTimerQueue' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(241): warning C4013: 'popTimerQueue' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(253): warning C4013: 'sort_timer_queue' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(283): warning C4013: 'addDiskToReady' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(157): warning C4101: 'z': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\base.c(156): warning C4101: 'tmp': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\base.c(159): warning C4101: 'timerTmp': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\base.c(160): warning C4101: 'SPData': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\base.c(158): warning C4101: 'readyTmp': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\base.c(333): warning C4013: 'GetCurrentRunningProcess' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(333): warning C4047: '=': 'PCB_stack *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(535): warning C4047: '=': 'PCB_stack *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(544): warning C4013: 'returnReadyQueueCount' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(546): warning C4013: 'returnFrontReadyQueue' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(546): warning C4047: '=': 'ready_queue *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(335): warning C4133: 'initializing': incompatible types - from 'long *' to 'UINT16 *'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(620): warning C4013: 'CustomStartTimer' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(627): warning C4013: 'only_create_process' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(656): warning C4047: '=': 'PCB_stack *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(657): warning C4047: '=': 'long *' differs in levels of indirection from 'long'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(658): warning C4013: 'pop_process' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(679): warning C4013: 'CustomSuspendProcess' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(685): warning C4013: 'CustomResumeProcess' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(690): warning C4013: 'get_process_id' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(695): warning C4013: 'CustomChangePriority' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(699): warning C4013: 'addToDiskQueue' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(765): warning C4047: '=': 'PCB_stack *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(774): warning C4047: '==': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(794): warning C4047: '=': 'long *' differs in levels of indirection from 'long'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(801): warning C4013: 'svc_term_context_switch' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(582): warning C4101: 'SPData2': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\base.c(586): warning C4101: 'timerTmp': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\base.c(582): warning C4101: 'SPData': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\base.c(587): warning C4101: 'tmp_disk': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\base.c(585): warning C4101: 'readyTmp': unreferenced local variable
-     1>n:\wpi\cs 502 os\z502 ws\base.c(931): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(947): warning C4013: 'os_create_process' undefined; assuming extern returning int
-     1>n:\wpi\cs 502 os\z502 ws\base.c(954): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(975): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(996): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(1017): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(1038): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(1059): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(1080): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(1103): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(1124): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(1152): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(1175): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(1196): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(1217): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(1238): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(1259): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(1280): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
-     1>n:\wpi\cs 502 os\z502 ws\base.c(1301): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\Test.c
+         Test.c
+     1>n:\wpi\cs 502 os\z502 ws\test.c(1619): warning C4244: '=': conversion from 'long' to 'INT16', possible loss of data
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\Debug\Z502.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\Debug\Z502.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\Debug\Z502.lib" /MACHINE:X86 Debug\base.obj
          Debug\functions.obj
@@ -71,4 +17,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:00.41
+Time Elapsed 00:00:01.02

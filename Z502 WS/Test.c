@@ -1562,7 +1562,7 @@ void test2f(void) {
 
 	//TERMINATE_PROCESS(-2, &ErrorReturned);
 
-	/*for (int i = 0; i < 7; i++)
+	/*for (int i = 0; i < 65; i++)
 	{
 		MemoryAddress = 16 * i;
 		
@@ -1578,18 +1578,18 @@ void test2f(void) {
 		}
 	}*/
 
-	/*MEM_READ(0, &DataRead);
+	/*MEM_READ(1040, &DataRead);
 
-	if (DataRead == 0)
+	if (DataRead == 65)
 	{
 		printf("Correct Data Read back\n");
 	}
 	else
 	{
 		printf("Incorrect Data Read at: %d\n", DataRead);
-	}*/
+	}
 
-	//TERMINATE_PROCESS(-2, &ErrorReturned);
+	TERMINATE_PROCESS(-2, &ErrorReturned);*/
 
 	for (Index = 0; Index < LOOP_COUNT; Index++) // Bugfix Rel 4.03  12/1/2013
 		mtr->page_touched[Index] = 0;
@@ -1608,7 +1608,12 @@ void test2f(void) {
 			printf("PID= %ld  address= %ld   written= %ld   read= %ld\n",
 				OurProcessID, MemoryAddress, DataWritten, DataRead);
 		if (DataRead != DataWritten)
-			printf("AN ERROR HAS OCCURRED: READ NOT EQUAL WRITE.\n");
+		{
+				printf("PID= %ld  address= %ld   written= %ld   read= %ld\n", OurProcessID, MemoryAddress, DataWritten, DataRead);
+				printf("ERROR HAS OCCURRED: READ NOT SAME AS WRITE.\n");
+				printf("%d\n", MemoryAddress);
+
+		}
 
 		// Record in our data-base that we've accessed this page
 		mtr->page_touched[(short)Loops] = PageNumber;
@@ -1634,7 +1639,17 @@ void test2f(void) {
 			printf("PID= %ld  address= %ld   written= %ld   read= %ld\n",
 				OurProcessID, MemoryAddress, DataWritten, DataRead);
 		if (DataRead != DataWritten)
-			printf("ERROR HAS OCCURRED: READ NOT SAME AS WRITE.\n");
+		{
+			printf("PID= %ld  address= %ld   written= %ld   read= %ld\n", OurProcessID, MemoryAddress, DataWritten, DataRead);
+			printf("2nd Loop: ERROR HAS OCCURRED: READ NOT SAME AS WRITE.\n");
+			printf("%d\n", MemoryAddress);
+
+		}
+		else
+		{
+			printf("2nd Loop correct\n");
+		}
+			
 
 	}   // End of for Loops
 
@@ -1648,17 +1663,17 @@ void test2f(void) {
 
 }                                 // End of test2f
 
-		  /**************************************************************************
-		  Test2g
+/**************************************************************************
+Test2g
 
-		  Tests multiple copies of test2f running simultaneously.
-		  Test2f runs these with the same priority in order to show
-		  equal preference for each child process.  This means all the
-		  child processes will be stealing memory from each other.
+Tests multiple copies of test2f running simultaneously.
+Test2f runs these with the same priority in order to show
+equal preference for each child process.  This means all the
+child processes will be stealing memory from each other.
 
-		  WARNING:  This test assumes tests 2e - 2f run successfully
+WARNING:  This test assumes tests 2e - 2f run successfully
 
-		  **************************************************************************/
+**************************************************************************/
 
 #define         PRIORITY2G              10
 
@@ -1693,6 +1708,9 @@ void test2g(void) {
 		SLEEP(SleepTime);
 		GET_PROCESS_ID("test2g_a", &ProcessID1, &ErrorReturned);
 	}
+
+	TERMINATE_PROCESS(-2, &ErrorReturned);
+
 	ErrorReturned = ERR_SUCCESS;
 	while (ErrorReturned == ERR_SUCCESS) {
 		SLEEP(SleepTime);
