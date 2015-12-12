@@ -940,19 +940,14 @@ your Operating System.
 void test1l(void) {
 	long ErrorReturned, ProcessID1;
 	
-	printf("in test1l\n");
+	char a[3], *b;
 
-	CREATE_PROCESS("test1l_1", test1a, NORMAL_PRIORITY, &ProcessID1,
-		&ErrorReturned);
-	SuccessExpected(ErrorReturned, "CREATE_PROCESS");
+	b = a;
 
-	int DiskID = (2 / 2) % MAX_NUMBER_OF_DISKS + 1;
-	//Sector = ( Iterations + (Sector * 177)) % NUM_LOGICAL_SECTORS;
-	//Sector = OurProcessID + (Iterations * 17) % NUM_LOGICAL_SECTORS; // Bugfix 4.11
-	
-	//SLEEP(50);
+	a[0] = 'x';
 
-	printf("test1l: %d\n", DiskID);
+	printf("b: %c\n", b[0]);
+
 
 	TERMINATE_PROCESS(-1, &ErrorReturned);
 }                                               // End test1l
@@ -1694,7 +1689,7 @@ void test2g(void) {
 	CREATE_PROCESS("test2g_b", test2f, PRIORITY2G, &ProcessID2, &ErrorReturned);
 	CREATE_PROCESS("test2g_c", test2f, PRIORITY2G, &ProcessID3, &ErrorReturned);
 	CREATE_PROCESS("test2g_d", test2f, PRIORITY2G, &ProcessID4, &ErrorReturned);
-	CREATE_PROCESS("test2g_e", test2f, PRIORITY2G, &ProcessID5, &ErrorReturned);
+	//CREATE_PROCESS("test2g_e", test2f, PRIORITY2G, &ProcessID5, &ErrorReturned);
 	SuccessExpected(ErrorReturned, "CREATE_PROCESS");
 
 	// In these next cases, we will loop until EACH of the child processes
@@ -1709,23 +1704,32 @@ void test2g(void) {
 		GET_PROCESS_ID("test2g_a", &ProcessID1, &ErrorReturned);
 	}
 
-	TERMINATE_PROCESS(-2, &ErrorReturned);
+	//TERMINATE_PROCESS(-2, &ErrorReturned);
 
 	ErrorReturned = ERR_SUCCESS;
 	while (ErrorReturned == ERR_SUCCESS) {
 		SLEEP(SleepTime);
 		GET_PROCESS_ID("test2g_b", &ProcessID2, &ErrorReturned);
 	}
+
+	//TERMINATE_PROCESS(-2, &ErrorReturned);
+
 	ErrorReturned = ERR_SUCCESS;
 	while (ErrorReturned == ERR_SUCCESS) {
 		SLEEP(SleepTime);
 		GET_PROCESS_ID("test2g_c", &ProcessID3, &ErrorReturned);
 	}
+
+	//TERMINATE_PROCESS(-2, &ErrorReturned);
+
 	ErrorReturned = ERR_SUCCESS;
 	while (ErrorReturned == ERR_SUCCESS) {
 		SLEEP(SleepTime);
 		GET_PROCESS_ID("test2g_d", &ProcessID4, &ErrorReturned);
 	}
+
+	TERMINATE_PROCESS(-2, &ErrorReturned);
+
 	ErrorReturned = ERR_SUCCESS;
 	while (ErrorReturned == ERR_SUCCESS) {
 		SLEEP(SleepTime);

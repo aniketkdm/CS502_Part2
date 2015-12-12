@@ -1,9 +1,75 @@
-﻿Build started 12/12/2015 1:45:36 AM.
+﻿Build started 12/12/2015 3:18:44 PM.
      1>Project "N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\ConsoleApplication1\ConsoleApplication1.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\Test.c
-         Test.c
-     1>n:\wpi\cs 502 os\z502 ws\test.c(1619): warning C4244: '=': conversion from 'long' to 'INT16', possible loss of data
+         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TC /analyze- /errorReport:prompt ..\..\base.c
+         base.c
+     1>n:\wpi\cs 502 os\z502 ws\base.c(241): warning C4013: 'SetMode' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(337): warning C4013: 'updateTimerQueue' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(348): warning C4013: 'popTimerQueue' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(360): warning C4013: 'sort_timer_queue' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(390): warning C4013: 'addDiskToReady' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(264): warning C4101: 'z': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\base.c(263): warning C4101: 'tmp': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\base.c(266): warning C4101: 'timerTmp': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\base.c(267): warning C4101: 'SPData': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\base.c(265): warning C4101: 'readyTmp': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\base.c(445): warning C4013: 'GetCurrentRunningProcess' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(445): warning C4047: '=': 'PCB_stack *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(457): warning C4047: '=': 'int **' differs in levels of indirection from 'int (*)[3]'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(466): warning C4047: '=': 'int **' differs in levels of indirection from 'int (*)[3]'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(475): warning C4047: '=': 'int **' differs in levels of indirection from 'int (*)[3]'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(484): warning C4047: '=': 'int **' differs in levels of indirection from 'int (*)[3]'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(493): warning C4047: '=': 'int **' differs in levels of indirection from 'int (*)[3]'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(502): warning C4047: '=': 'int **' differs in levels of indirection from 'int (*)[3]'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(650): warning C4047: 'function': 'int (*)[3]' differs in levels of indirection from 'int **'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(650): warning C4024: 'writeShadowTable': different types for formal and actual parameter 2
+     1>n:\wpi\cs 502 os\z502 ws\base.c(653): warning C4047: 'function': 'int (*)[3]' differs in levels of indirection from 'int **'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(653): warning C4024: 'readVictimFrameWriteDisk': different types for formal and actual parameter 3
+     1>n:\wpi\cs 502 os\z502 ws\base.c(679): warning C4047: 'function': 'int (*)[3]' differs in levels of indirection from 'int **'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(679): warning C4024: 'readDiskForCurrentVirtualPage': different types for formal and actual parameter 3
+     1>n:\wpi\cs 502 os\z502 ws\base.c(708): warning C4047: '=': 'PCB_stack *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(717): warning C4013: 'returnReadyQueueCount' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(719): warning C4013: 'returnFrontReadyQueue' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(719): warning C4047: '=': 'ready_queue *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(447): warning C4133: 'initializing': incompatible types - from 'long *' to 'UINT16 *'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(793): warning C4013: 'CustomStartTimer' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(800): warning C4013: 'only_create_process' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(829): warning C4047: '=': 'PCB_stack *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(830): warning C4047: '=': 'long *' differs in levels of indirection from 'long'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(831): warning C4013: 'pop_process' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(852): warning C4013: 'CustomSuspendProcess' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(858): warning C4013: 'CustomResumeProcess' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(863): warning C4013: 'get_process_id' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(868): warning C4013: 'CustomChangePriority' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(872): warning C4013: 'addToDiskQueue' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(938): warning C4047: '=': 'PCB_stack *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(947): warning C4047: '==': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(967): warning C4047: '=': 'long *' differs in levels of indirection from 'long'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(974): warning C4013: 'svc_term_context_switch' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(755): warning C4101: 'SPData2': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\base.c(759): warning C4101: 'timerTmp': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\base.c(755): warning C4101: 'SPData': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\base.c(760): warning C4101: 'tmp_disk': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\base.c(758): warning C4101: 'readyTmp': unreferenced local variable
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1104): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1120): warning C4013: 'os_create_process' undefined; assuming extern returning int
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1127): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1148): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1169): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1190): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1211): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1232): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1253): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1276): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1297): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1325): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1348): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1369): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1390): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1411): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1432): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1453): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
+     1>n:\wpi\cs 502 os\z502 ws\base.c(1474): warning C4047: '=': 'long *' differs in levels of indirection from 'int'
        Link:
          C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\Debug\Z502.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\Debug\Z502.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"N:\WPI\CS 502 OS\Z502 WS\ConsoleApplication1\Debug\Z502.lib" /MACHINE:X86 Debug\base.obj
          Debug\functions.obj
@@ -17,4 +83,4 @@
 
 Build succeeded.
 
-Time Elapsed 00:00:01.02
+Time Elapsed 00:00:00.49

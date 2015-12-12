@@ -289,7 +289,7 @@ void sort_ready_queue()
 			temp = front_ready_queue;
 			for (j = 1; j <= count_ready_queue - i; j++)
 			{
-				CALL(50);
+				//CALL(50);
 
 				if (temp->current_ready_process_addr->priority > temp->next_ready_process->current_ready_process_addr->priority)
 				{

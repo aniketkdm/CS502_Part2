@@ -51,16 +51,72 @@ char *call_names[] = { "mem_read ", "mem_write", "read_mod ", "get_time ",
 } Create_Process_Struct; */
 
 static int iteration = 0;
+static int iteration3 = 0;
+static int iteration5 = 0;
+static int iteration7 = 0;
+static int iteration9 = 0;
+static int iteration11 = 0;
 
-int shadowDiskID = 1;
-int shadowSector = 1;
-int shadowTableRow = 0;
-int shadowTable[1024][3];
-int victimFrames[64];
+//int shadowDiskID = 1;
 
-void writeShadowTable(int vPgNo)
+int SD = 1;
+int SD3 = 2;
+int SD5= 3;
+int SD7 = 4;
+int SD9 = 5;
+int SD11 = 6;
+
+int RD7 = 7;
+int RD8 = 8;
+
+//int shadowSector = 1;
+
+int SS = 1;
+int SS3 = 1;
+int SS5 = 1;
+int SS7 = 1;
+int SS9 = 1;
+int SS11 = 1;
+
+//int shadowTableRow = 0;
+
+int STR = 0;
+int STR3 = 0;
+int STR5 = 0;
+int STR7 = 0;
+int STR9 = 0;
+int STR11 = 0;
+
+//int shadowTable[1024][3];
+
+int ST[1024][3];
+int ST3[1024][3];
+int ST5[1024][3];
+int ST7[1024][3];
+int ST9[1024][3];
+int ST11[1024][3];
+
+//int victimFrames[64];
+
+int VF[64];
+int VF3[64];
+int VF5[64];
+int VF7[64];
+int VF9[64];
+int VF11[64];
+
+void writeShadowTable(int vPgNo, int shadowTable[][3], int *shadowDiskID, int *shadowSector, int *shadowTableRow)
 {
 	int i;
+	//int **shadowTable;
+
+	/*switch (PID)
+	{
+	case 1: shadowTable = ST;
+		break;
+	default:
+		break;
+	}*/
 
 	for (i = 0; i < 1024; i++)
 	{
@@ -73,18 +129,18 @@ void writeShadowTable(int vPgNo)
 	if (i < 1024)
 	{
 		// virtual page entry already exists in shadow table. Need to update instead of insert
-		if (shadowTable[i][0] == 0)
+		if (shadowTable[i][0] == vPgNo)
 		{
-			shadowTable[shadowTableRow][0] = vPgNo;
-			shadowTable[shadowTableRow][1] = shadowDiskID;
-			shadowTable[shadowTableRow][2] = shadowSector;
+			shadowTable[i][0] = vPgNo;
+			shadowTable[i][1] = *shadowDiskID;
+			shadowTable[i][2] = *shadowSector;
 
-			shadowTableRow++;
-			shadowSector++;
-			if (shadowSector > 1599)
+			//*shadowTableRow = *shadowTableRow + 1;
+			*shadowSector = *shadowSector + 1;
+			if (*shadowSector > 1599)
 			{
-				shadowDiskID++;
-				shadowSector = 1;
+				*shadowDiskID = *shadowDiskID + 1;
+				*shadowSector = 1;
 			}
 		}
 
@@ -93,16 +149,16 @@ void writeShadowTable(int vPgNo)
 	else
 	{
 
-		shadowTable[shadowTableRow][0] = vPgNo;
-		shadowTable[shadowTableRow][1] = shadowDiskID;
-		shadowTable[shadowTableRow][2] = shadowSector;
+		shadowTable[*shadowTableRow][0] = vPgNo;
+		shadowTable[*shadowTableRow][1] = *shadowDiskID;
+		shadowTable[*shadowTableRow][2] = *shadowSector;
 
-		shadowTableRow++;
-		shadowSector++;
-		if (shadowSector > 1599)
+		*shadowTableRow = *shadowTableRow + 1;
+		*shadowSector = *shadowSector + 1;
+		if (*shadowSector > 1599)
 		{
-			shadowDiskID++;
-			shadowSector = 1;
+			*shadowDiskID = *shadowDiskID + 1;
+			*shadowSector = 1;
 		}
 	}
 	/*else
@@ -114,11 +170,21 @@ void writeShadowTable(int vPgNo)
 
 }
 
-void readVictimFrameWriteDisk(int vPgNo, int phy_add)
+void readVictimFrameWriteDisk(int vPgNo, int phy_add, int shadowTable[][3])
 {
 	char victimFrameData[16];
 	int i, diskID, sector,char_data[16];
 
+	//int **shadowTable;
+
+	/*switch (PID)
+	{
+	case 1: shadowTable = ST;
+		break;
+	default:
+		break;
+	}*/
+	
 	Z502ReadPhysicalMemory(vPgNo, (char *)victimFrameData);
 
 	// searching the diskID and Sector number from the shadow for this page number
@@ -141,9 +207,19 @@ void readVictimFrameWriteDisk(int vPgNo, int phy_add)
 	}
 }
 
-void readDiskForCurrentVirtualPage(int pgNo, int frameNo)
+void readDiskForCurrentVirtualPage(int pgNo, int frameNo, int shadowTable[][3])
 {
 	int i, diskID, sector, char_data[16] = { 0 };
+
+	/*int **shadowTable;
+
+	switch (PID)
+	{
+	case 1: shadowTable = ST;
+		break;
+	default:
+		break;
+	}*/
 
 	// searching the diskID and Sector number from the shadow for this page number
 	for (i = 0; i < 1024; i++)
@@ -340,6 +416,11 @@ void FaultHandler(void) {
 	int frameNumber[6] = { 0 };
 	int victimFrameSelected[6] = { 0 };
 
+	int *itrn;
+	int *victimFrames;
+	int **shadowTable;
+	int *shadowSector, *shadowDiskID, *shadowTableRow;
+
 	MEMORY_MAPPED_IO mmio;       // Enables communication with hardware
 
 	// Get cause of interrupt
@@ -368,193 +449,254 @@ void FaultHandler(void) {
 			validBit = (add[(UINT16)Status] & (1 << 15)) >> 15;
 			TmpBit = (add[(UINT16)Status] & (1 << 12)) >> 12;
 
-
-			if (iteration <= 63)
+			switch (tmp->PID)
 			{
-				phy_add = iteration;
+			case 1:
+				itrn = &iteration;
+				victimFrames = VF;
+				shadowTable = ST;
+				shadowDiskID = &SD;
+				shadowSector = &SS;
+				shadowTableRow = &STR;
+				break;
 
-				if (validBit == 0 && TmpBit == 0) // May not need to check this
-				{
+			case 3:
+				itrn = &iteration3;
+				victimFrames = VF3;
+				shadowTable = ST3;
+				shadowDiskID = &SD3;
+				shadowSector = &SS3;
+				shadowTableRow = &STR3;
+				break;
 
-					// Below while loop will assign binary value of the physical page address
-					// in a bit-wise fashion
+			case 5:
+				itrn = &iteration5;
+				victimFrames = VF5;
+				shadowTable = ST5;
+				shadowDiskID = &SD5;
+				shadowSector = &SS5;
+				shadowTableRow = &STR5;
+				break;
 
-					while (phy_add != 0 && phy_add != 1)
-					{
-						bit_value = phy_add % 2;
-						add[(UINT16)Status] |= bit_value << bit_pos;
-						phy_add = (int)phy_add / 2;
-						bit_pos++;
-					}
+			case 7:
+				itrn = &iteration7;
+				victimFrames = VF7;
+				shadowTable = ST7;
+				shadowDiskID = &SD7;
+				shadowSector = &SS7;
+				shadowTableRow = &STR7;
+				break;
 
-					// Below binary value assignment is completed
-					add[(UINT16)Status] |= phy_add << bit_pos;
+			case 9:
+				itrn = &iteration9;
+				victimFrames = VF9;
+				shadowTable = ST9;
+				shadowDiskID = &SD9;
+				shadowSector = &SS9;
+				shadowTableRow = &STR9;
+				break;
 
-					// Next physical address that can be assigned is set
-					iteration++;
+			case 11:
+				itrn = &iteration11;
+				victimFrames = VF11;
+				shadowTable = ST11;
+				shadowDiskID = &SD11;
+				shadowSector = &SS11;
+				shadowTableRow = &STR11;
+				break;
 
-					// Valid bit is set to 1
-					add[(UINT16)Status] |= 1 << 15;
-
-
+			default:
+				break;
 			}
-			else
-			{// we should not enter here
-				printf("iteration is <= 63 but valid and/or 12th bit is not 0\n");
-			}
-		}
-
-			// all 0-63 physical frames are used up
-			// and the currrent virtual page number needs a frame
-			// as its invalid and the corresponding frame data is not written to disk
-		else if (iteration > 63 && validBit == 0)
-		{
-				//printf("iteration: %d\n", iteration);
-
-				leastValue = victimFrames[0];
-
-				//printf("least value: %d\n", leastValue);
-
-				// this for loop will find the victim frame 
-				for (i = 1; i < 64; i++)
-				{
-					if (victimFrames[i] < leastValue)
-					{
-						leastValue = victimFrames[i];
-						victimFrames[i] = victimFrames[i] + 1;
-						break;
-					}
-				}
-
-				// all the victimFrames have same value
-				// hence frame 0  is selected as victim
-				if (i == 64)
-				{
-					i = 0;
-					victimFrames[i] = victimFrames[i] + 1;
-				}
-
-				phy_add = i;
-
-				tmp_phy_add = phy_add;
-
-				z = 5;
-
-				while (tmp_phy_add != 0 && tmp_phy_add != 1)
-				{
-					bv = tmp_phy_add % 2;
-					victimFrameSelected[z] = bv;
-					tmp_phy_add = (int)tmp_phy_add / 2;
-					z--;
-				}
-
-				// Below binary value assignment is completed
-				victimFrameSelected[z] = tmp_phy_add;
-
-				/*for (int t = 0; t < 6; t++)
-				{
-					printf("victimFrameSelected[%d]: %d\n", t, victimFrameSelected[t]);
-				}*/
 			
-				printf("victim frame: %d\n", phy_add);
-
-				// finding virtual page number where frame number == phy add (victim frame)
-
-				for (vPgNo = 0; vPgNo < 1024; vPgNo++) 
+				if (*itrn <= 63)
 				{
-					//printf("vPgNo: %d\n", vPgNo);
+					phy_add = *itrn;
 
-					//printf("page table entry: %d\n", add[vPgNo]);
-
-					//printf("at location 15: %d\n", (add[vPgNo] & (1 << 15)) >> 15);
-
-					z = 5;
-
-					for (k = 0; k < 6; k++)
+					if (validBit == 0 && TmpBit == 0) // May not need to check this
 					{
-						//printf("k: %d, %d\n", k, (add[vPgNo] & (1 << k)) >> k);
-						frameNumber[z] = (add[vPgNo] & (1 << k)) >> k;
-						z--;
-					}
-					
-					for (z = 0; z < 6; z++)
-					{
-						if (frameNumber[z] != victimFrameSelected[z])
+
+						// Below while loop will assign binary value of the physical page address
+						// in a bit-wise fashion
+
+						while (phy_add != 0 && phy_add != 1)
 						{
+							bit_value = phy_add % 2;
+							add[(UINT16)Status] |= bit_value << bit_pos;
+							phy_add = (int)phy_add / 2;
+							bit_pos++;
+						}
+
+						// Below binary value assignment is completed
+						add[(UINT16)Status] |= phy_add << bit_pos;
+
+						// Next physical address that can be assigned is set
+						//iteration++;
+
+						*itrn = *itrn + 1;
+
+						// Valid bit is set to 1
+						add[(UINT16)Status] |= 1 << 15;
+
+
+					}
+					else
+					{// we should not enter here
+						printf("iteration is <= 63 but valid and/or 12th bit is not 0\n");
+					}
+				}
+
+				// all 0-63 physical frames are used up
+				// and the currrent virtual page number needs a frame
+				// as its invalid and the corresponding frame data may or may not be written to disk
+				else if (*itrn > 63 && validBit == 0)
+				{
+					//printf("iteration: %d\n", *itrn);
+
+					leastValue = victimFrames[0];
+
+					//printf("least value: %d\n", leastValue);
+
+					// this for loop will find the victim frame 
+					for (i = 1; i < 64; i++)
+					{
+						if (victimFrames[i] < leastValue)
+						{
+							leastValue = victimFrames[i];
+							victimFrames[i] = victimFrames[i] + 1;
 							break;
 						}
 					}
-					
-					if (z == 6)
+
+					// all the victimFrames have same value
+					// hence frame 0  is selected as victim
+					if (i == 64)
 					{
-						break;
+						i = 0;
+						victimFrames[i] = victimFrames[i] + 1;
 					}
-					
-				}
 
-				if (vPgNo < 1024)
-				{
-					add[vPgNo] |= 1 << 12; // 12th bit tells us if the virtual page is written to disk
-
-					//add[vPgNo] |= 0 << 13;
-					//add[vPgNo] |= 0 << 14; // we make the virtual page invalid as its frame value is written to disk
-					add[vPgNo] &= ~(1 << 15);
-
-					for (int t = 0; t < 6; t++)
-					{
-						add[vPgNo] &= ~(1 << t);
-					}
-					writeShadowTable(vPgNo); // write pg number, disk ID and sector to the shadow table
-
-					readVictimFrameWriteDisk(vPgNo,phy_add); // Read the data at victim frame memory location and write it to disk
-
-					//printf("victim virtual page: %d, victim frame: %d, current virtual page: %d \n", vPgNo,phy_add,Status);
-							
-
-					// write the victim frame address to the current virtual page, i.e. the new one 
-					//for which we found the phy. frame
+					phy_add = i;
 
 					tmp_phy_add = phy_add;
 
-					while (phy_add != 0 && phy_add != 1)
+					z = 5;
+
+					while (tmp_phy_add != 0 && tmp_phy_add != 1)
 					{
-						bit_value = phy_add % 2;
-						add[(UINT16)Status] |= bit_value << bit_pos;
-						phy_add = (int)phy_add / 2;
-						bit_pos++;
+						bv = tmp_phy_add % 2;
+						victimFrameSelected[z] = bv;
+						tmp_phy_add = (int)tmp_phy_add / 2;
+						z--;
 					}
 
 					// Below binary value assignment is completed
-					add[(UINT16)Status] |= phy_add << bit_pos;
+					victimFrameSelected[z] = tmp_phy_add;
 
-
-					// the virtual page entry is invalid but 
-					// the corresponding physical frame data is written to disk
-					if (TmpBit == 1)
+					/*for (int t = 0; t < 6; t++)
 					{
-						// So we read from disk and write to the victim frame selected
-						readDiskForCurrentVirtualPage(Status, tmp_phy_add);
-						add[(UINT16)Status] &= ~(1 << 12);
+						printf("victimFrameSelected[%d]: %d\n", t, victimFrameSelected[t]);
+					}*/
+
+					//printf("victim frame: %d\n", phy_add);
+
+					// finding virtual page number where frame number == phy add (victim frame)
+					for (vPgNo = 0; vPgNo < 1024; vPgNo++)
+					{
+						//printf("vPgNo: %d\n", vPgNo);
+
+						//printf("page table entry: %d\n", add[vPgNo]);
+
+						//printf("at location 15: %d\n", (add[vPgNo] & (1 << 15)) >> 15);
+
+						z = 5;
+
+						for (k = 0; k < 6; k++)
+						{
+							//printf("k: %d, %d\n", k, (add[vPgNo] & (1 << k)) >> k);
+							frameNumber[z] = (add[vPgNo] & (1 << k)) >> k;
+							z--;
+						}
+
+						for (z = 0; z < 6; z++)
+						{
+							if (frameNumber[z] != victimFrameSelected[z])
+							{
+								break;
+							}
+						}
+
+						if (z == 6)
+						{
+							break;
+						}
+
 					}
-					
-					// Valid bit is set to 1
-					add[(UINT16)Status] |= 1 << 15;
-				}
-				else
-				{// we should not be entering this part
-					printf("virtual page number of the victim frame not found\n");
-				}
 
-			}
-			
-			
+					if (vPgNo < 1024)
+					{
+						add[vPgNo] |= 1 << 12; // 12th bit tells us if the virtual page is written to disk
 
+						//add[vPgNo] |= 0 << 13;
+						//add[vPgNo] |= 0 << 14; 
+						add[vPgNo] &= ~(1 << 15); // we make the virtual page invalid as its frame value is written to disk
+
+						for (int t = 0; t < 6; t++)
+						{
+							add[vPgNo] &= ~(1 << t); // the assigned victim frame is released
+						}
+						
+						// write pg number, disk ID and sector to the shadow table
+						writeShadowTable(vPgNo, shadowTable,shadowDiskID,shadowSector,shadowTableRow); 
+
+						// Read the data at victim frame memory location and write it to disk
+						readVictimFrameWriteDisk(vPgNo, phy_add, shadowTable); 
+
+						//printf("victim virtual page: %d, victim frame: %d, current virtual page: %d \n", vPgNo,phy_add,Status);
+
+
+						// write the victim frame address to the current virtual page, i.e. the new one 
+						//for which we found the phy. frame
+						tmp_phy_add = phy_add;
+
+						while (phy_add != 0 && phy_add != 1)
+						{
+							bit_value = phy_add % 2;
+							add[(UINT16)Status] |= bit_value << bit_pos;
+							phy_add = (int)phy_add / 2;
+							bit_pos++;
+						}
+
+						// Below binary value assignment is completed
+						add[(UINT16)Status] |= phy_add << bit_pos;
+
+
+						// the virtual page entry is invalid but 
+						// the corresponding physical frame data is written to disk
+						if (TmpBit == 1)
+						{
+							// So we read from disk and write to the victim frame selected
+							readDiskForCurrentVirtualPage(Status, tmp_phy_add, shadowTable);
+							add[(UINT16)Status] &= ~(1 << 12); // latest data is now in memory; hence 12th bit is cleared
+						}
+
+						// Valid bit is set to 1
+						add[(UINT16)Status] |= 1 << 15;
+					}
+					else
+					{// we should not be entering this part
+						printf("virtual page number of the victim frame not found\n");
+					}
+
+				}
+			
 		}
 		else
 		{
 			//printf("The address is out of address\n");
 			TERMINATE_PROCESS(-2, &ErrorReturned);
 		}
+		
 	}
 	if (DeviceID == PRIVILEGED_INSTRUCTION)
 	{
