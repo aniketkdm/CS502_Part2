@@ -1553,16 +1553,16 @@ void test2f(void) {
 	GET_PROCESS_ID("", &OurProcessID, &ErrorReturned);
 	printf("\n\nRelease %s:Test 2f: Pid %ld\n", CURRENT_REL, OurProcessID);
 
-	for (int i = 0; i < 65; i++)
+	/*for (int i = 0; i < 65; i++)
 	{
 		MemoryAddress = 16 * i;
 		DataWritten = i;
 		MEM_WRITE(MemoryAddress, &DataWritten);
-	}
+	}*/
 
 	//TERMINATE_PROCESS(-2, &ErrorReturned);
 
-	/*for (int i = 1; i < 64; i++)
+	/*for (int i = 0; i < 7; i++)
 	{
 		MemoryAddress = 16 * i;
 		
@@ -1574,11 +1574,11 @@ void test2f(void) {
 		}
 		else
 		{
-			printf("Incorrect Data Read at: %d\n", i);
+			printf("Incorrect Data Read: %d %d\n", i, DataRead);
 		}
 	}*/
 
-	MEM_READ(MemoryAddress, &DataRead);
+	/*MEM_READ(0, &DataRead);
 
 	if (DataRead == 0)
 	{
@@ -1586,10 +1586,10 @@ void test2f(void) {
 	}
 	else
 	{
-		printf("Incorrect Data Read at: %d\n", i);
-	}
+		printf("Incorrect Data Read at: %d\n", DataRead);
+	}*/
 
-	TERMINATE_PROCESS(-2, &ErrorReturned);
+	//TERMINATE_PROCESS(-2, &ErrorReturned);
 
 	for (Index = 0; Index < LOOP_COUNT; Index++) // Bugfix Rel 4.03  12/1/2013
 		mtr->page_touched[Index] = 0;
@@ -1618,7 +1618,7 @@ void test2f(void) {
 
 	}   // End of for Loops
 
-	TERMINATE_PROCESS(-1, &ErrorReturned);
+	//TERMINATE_PROCESS(-1, &ErrorReturned);
 
 	for (Loops = 0; Loops < LOOP_COUNT; Loops++) {
 

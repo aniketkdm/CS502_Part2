@@ -1,0 +1,844 @@
+This is Simulation Version 4.20 and Hardware Version 4.20.
+
+Program called with 2 arguments: z502.exe test2f
+Calling with argument 'sample' executes the sample program.
+Simulation is running as a UniProcessor
+Add an 'M' to the command line to invoke multiprocessor operation.
+
+SVC handler: get_pid  
+Arg 0: Contents = (Decimal) 15228698,  (Hex)   E85F1A
+Arg 1: Contents = (Decimal) 20970904,  (Hex)  13FFD98
+Arg 2: Contents = (Decimal) 20970844,  (Hex)  13FFD5C
+Program correctly returned success.
+
+
+Release 4.20:Test 2f: Pid 1
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 0
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 0
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 0 was successful
+Virtual Page value in Z502: 0
+z502: 32768
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 1
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 1
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 1 was successful
+Virtual Page value in Z502: 1
+z502: 32769
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 2
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 2
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 2 was successful
+Virtual Page value in Z502: 2
+z502: 32770
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 3
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 3
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 3 was successful
+Virtual Page value in Z502: 3
+z502: 32771
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 4
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 4
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 4 was successful
+Virtual Page value in Z502: 4
+z502: 32772
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 5
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 5
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 5 was successful
+Virtual Page value in Z502: 5
+z502: 32773
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 6
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 6
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 6 was successful
+Virtual Page value in Z502: 6
+z502: 32774
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 7
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 7
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 7 was successful
+Virtual Page value in Z502: 7
+z502: 32775
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 8
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 8
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 8 was successful
+Virtual Page value in Z502: 8
+z502: 32776
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 9
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 9
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 9 was successful
+Virtual Page value in Z502: 9
+z502: 32777
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 10
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 10
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 10 was successful
+Virtual Page value in Z502: 10
+z502: 32778
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 11
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 11
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 11 was successful
+Virtual Page value in Z502: 11
+z502: 32779
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 12
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 12
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 12 was successful
+Virtual Page value in Z502: 12
+z502: 32780
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 13
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 13
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 13 was successful
+Virtual Page value in Z502: 13
+z502: 32781
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 14
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 14
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 14 was successful
+Virtual Page value in Z502: 14
+z502: 32782
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 15
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 15
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 15 was successful
+Virtual Page value in Z502: 15
+z502: 32783
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 16
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 16
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 16 was successful
+Virtual Page value in Z502: 16
+z502: 32784
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 17
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 17
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 17 was successful
+Virtual Page value in Z502: 17
+z502: 32785
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 18
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 18
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 18 was successful
+Virtual Page value in Z502: 18
+z502: 32786
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 19
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 19
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 19 was successful
+Virtual Page value in Z502: 19
+z502: 32787
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 20
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 20
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 20 was successful
+Virtual Page value in Z502: 20
+z502: 32788
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 21
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 21
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 21 was successful
+Virtual Page value in Z502: 21
+z502: 32789
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 22
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 22
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 22 was successful
+Virtual Page value in Z502: 22
+z502: 32790
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 23
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 23
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 23 was successful
+Virtual Page value in Z502: 23
+z502: 32791
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 24
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 24
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 24 was successful
+Virtual Page value in Z502: 24
+z502: 32792
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 25
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 25
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 25 was successful
+Virtual Page value in Z502: 25
+z502: 32793
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 26
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 26
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 26 was successful
+Virtual Page value in Z502: 26
+z502: 32794
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 27
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 27
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 27 was successful
+Virtual Page value in Z502: 27
+z502: 32795
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 28
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 28
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 28 was successful
+Virtual Page value in Z502: 28
+z502: 32796
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 29
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 29
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 29 was successful
+Virtual Page value in Z502: 29
+z502: 32797
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 30
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 30
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 30 was successful
+Virtual Page value in Z502: 30
+z502: 32798
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 31
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 31
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 31 was successful
+Virtual Page value in Z502: 31
+z502: 32799
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 32
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 32
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 32 was successful
+Virtual Page value in Z502: 32
+z502: 32800
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 33
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 33
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 33 was successful
+Virtual Page value in Z502: 33
+z502: 32801
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 34
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 34
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 34 was successful
+Virtual Page value in Z502: 34
+z502: 32802
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 35
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 35
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 35 was successful
+Virtual Page value in Z502: 35
+z502: 32803
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 36
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 36
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 36 was successful
+Virtual Page value in Z502: 36
+z502: 32804
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 37
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 37
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 37 was successful
+Virtual Page value in Z502: 37
+z502: 32805
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 38
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 38
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 38 was successful
+Virtual Page value in Z502: 38
+z502: 32806
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 39
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 39
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 39 was successful
+Virtual Page value in Z502: 39
+z502: 32807
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 40
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 40
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 40 was successful
+Virtual Page value in Z502: 40
+z502: 32808
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 41
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 41
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 41 was successful
+Virtual Page value in Z502: 41
+z502: 32809
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 42
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 42
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 42 was successful
+Virtual Page value in Z502: 42
+z502: 32810
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 43
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 43
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 43 was successful
+Virtual Page value in Z502: 43
+z502: 32811
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 44
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 44
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 44 was successful
+Virtual Page value in Z502: 44
+z502: 32812
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 45
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 45
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 45 was successful
+Virtual Page value in Z502: 45
+z502: 32813
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 46
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 46
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 46 was successful
+Virtual Page value in Z502: 46
+z502: 32814
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 47
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 47
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 47 was successful
+Virtual Page value in Z502: 47
+z502: 32815
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 48
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 48
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 48 was successful
+Virtual Page value in Z502: 48
+z502: 32816
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 49
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 49
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 49 was successful
+Virtual Page value in Z502: 49
+z502: 32817
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 50
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 50
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 50 was successful
+Virtual Page value in Z502: 50
+z502: 32818
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 51
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 51
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 51 was successful
+Virtual Page value in Z502: 51
+z502: 32819
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 52
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 52
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 52 was successful
+Virtual Page value in Z502: 52
+z502: 32820
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 53
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 53
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 53 was successful
+Virtual Page value in Z502: 53
+z502: 32821
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 54
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 54
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 54 was successful
+Virtual Page value in Z502: 54
+z502: 32822
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 55
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 55
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 55 was successful
+Virtual Page value in Z502: 55
+z502: 32823
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 56
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 56
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 56 was successful
+Virtual Page value in Z502: 56
+z502: 32824
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 57
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 57
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 57 was successful
+Virtual Page value in Z502: 57
+z502: 32825
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 58
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 58
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 58 was successful
+Virtual Page value in Z502: 58
+z502: 32826
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 59
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 59
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 59 was successful
+Virtual Page value in Z502: 59
+z502: 32827
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 60
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 60
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 60 was successful
+Virtual Page value in Z502: 60
+z502: 32828
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 61
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 61
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 61 was successful
+Virtual Page value in Z502: 61
+z502: 32829
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 62
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 62
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 62 was successful
+Virtual Page value in Z502: 62
+z502: 32830
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 63
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 63
+Program correctly returned success.
+MEMORY DEBUG: Virtual Page Number 63 was successful
+Virtual Page value in Z502: 63
+z502: 32831
+bit value in Z502: 0
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 64
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 64
+Program correctly returned success.
+victim frame: 0
+SVC handler: disk_wrt 
+Arg 0: Contents = (Decimal)        1,  (Hex)        1
+Arg 1: Contents = (Decimal)        1,  (Hex)        1
+Arg 2: Contents = (Decimal) 20968808,  (Hex)  13FF568
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+MEMORY DEBUG: Virtual Page Number 64 was successful
+Virtual Page value in Z502: 64
+z502: 32768
+bit value in Z502: 28672
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 0
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 0
+Program correctly returned success.
+victim frame: 1
+SVC handler: disk_wrt 
+Arg 0: Contents = (Decimal)        1,  (Hex)        1
+Arg 1: Contents = (Decimal)        2,  (Hex)        2
+Arg 2: Contents = (Decimal) 20968808,  (Hex)  13FF568
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+SVC handler: disk_read
+Arg 0: Contents = (Decimal)        1,  (Hex)        1
+Arg 1: Contents = (Decimal)        1,  (Hex)        1
+Arg 2: Contents = (Decimal) 20968832,  (Hex)  13FF580
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+Read data is: 0
+Read data is: 0
+MEMORY DEBUG: Virtual Page Number 0 was successful
+Virtual Page value in Z502: 0
+z502: 57345
+z502 mem Read: 0
+Correct Data Read back
+bit value in Z502: 28672
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 1
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 1
+Program correctly returned success.
+victim frame: 2
+SVC handler: disk_wrt 
+Arg 0: Contents = (Decimal)        1,  (Hex)        1
+Arg 1: Contents = (Decimal)        3,  (Hex)        3
+Arg 2: Contents = (Decimal) 20968808,  (Hex)  13FF568
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+SVC handler: disk_read
+Arg 0: Contents = (Decimal)        1,  (Hex)        1
+Arg 1: Contents = (Decimal)        2,  (Hex)        2
+Arg 2: Contents = (Decimal) 20968832,  (Hex)  13FF580
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+Read data is: 1
+Read data is: 1
+MEMORY DEBUG: Virtual Page Number 1 was successful
+Virtual Page value in Z502: 1
+z502: 57346
+z502 mem Read: 1
+Correct Data Read back
+bit value in Z502: 28672
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 2
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 2
+Program correctly returned success.
+victim frame: 3
+SVC handler: disk_wrt 
+Arg 0: Contents = (Decimal)        1,  (Hex)        1
+Arg 1: Contents = (Decimal)        4,  (Hex)        4
+Arg 2: Contents = (Decimal) 20968808,  (Hex)  13FF568
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+SVC handler: disk_read
+Arg 0: Contents = (Decimal)        1,  (Hex)        1
+Arg 1: Contents = (Decimal)        3,  (Hex)        3
+Arg 2: Contents = (Decimal) 20968832,  (Hex)  13FF580
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+Read data is: 2
+Read data is: 2
+MEMORY DEBUG: Virtual Page Number 2 was successful
+Virtual Page value in Z502: 2
+z502: 57347
+z502 mem Read: 2
+Correct Data Read back
+bit value in Z502: 28672
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 3
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 3
+Program correctly returned success.
+victim frame: 4
+SVC handler: disk_wrt 
+Arg 0: Contents = (Decimal)        1,  (Hex)        1
+Arg 1: Contents = (Decimal)        5,  (Hex)        5
+Arg 2: Contents = (Decimal) 20968808,  (Hex)  13FF568
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+SVC handler: disk_read
+Arg 0: Contents = (Decimal)        1,  (Hex)        1
+Arg 1: Contents = (Decimal)        4,  (Hex)        4
+Arg 2: Contents = (Decimal) 20968832,  (Hex)  13FF580
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+Read data is: 3
+Read data is: 3
+MEMORY DEBUG: Virtual Page Number 3 was successful
+Virtual Page value in Z502: 3
+z502: 57348
+z502 mem Read: 3
+Correct Data Read back
+bit value in Z502: 28672
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 4
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 4
+Program correctly returned success.
+victim frame: 5
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+Read data is: 4
+Read data is: 4
+MEMORY DEBUG: Virtual Page Number 4 was successful
+Virtual Page value in Z502: 4
+z502: 57349
+z502 mem Read: 4
+Correct Data Read back
+bit value in Z502: 28672
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 5
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 5
+Program correctly returned success.
+victim frame: 6
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+Read data is: 5
+Read data is: 5
+MEMORY DEBUG: Virtual Page Number 5 was successful
+Virtual Page value in Z502: 5
+z502: 57350
+z502 mem Read: 5
+Correct Data Read back
+bit value in Z502: 28672
+MEMORY DEBUG: You have not initialized the slot in the page table
+		corresponding to virtual page 6
+		You must aim this virtual page at a physical frame
+		and mark this page table slot as valid.
+Fault_handler: Found vector type 2 with value 6
+Program correctly returned success.
+victim frame: 7
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+Program correctly returned success.
+Interrupt_handler: Found device ID 5 with status 0
+Read data is: 6
+Read data is: 6
+MEMORY DEBUG: Virtual Page Number 6 was successful
+Virtual Page value in Z502: 6
+z502: 57351
+z502 mem Read: 6
+Correct Data Read back
+Program correctly returned success.
+
+Hardware Statistics during the Simulation
+Disk  1: Disk Reads =     7: Disk Writes =     8: Disk Utilization =  0.677
+Faults =    72:  Context Switches =    16:  Mean Number Running Threads =   1.00   CALLS =  1243
+  The Z502 halts execution and Ends at Time 2215
+Exiting the program

@@ -355,6 +355,9 @@ void MemoryCommon(INT32 VirtualAddress, char *data_ptr, BOOL read_or_write) {
 		data_ptr[1] = MEMORY[PhysicalAddress[1]];
 		data_ptr[2] = MEMORY[PhysicalAddress[2]];
 		data_ptr[3] = MEMORY[PhysicalAddress[3]];
+
+		printf("z502 mem Read: %d\n", data_ptr[0]);
+
 		ptbl_bits = PTBL_REFERENCED_BIT;
 	}
 
