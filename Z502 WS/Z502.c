@@ -267,7 +267,7 @@ void MemoryCommon(INT32 VirtualAddress, char *data_ptr, BOOL read_or_write) {
 			&& (GetPageTableAddress()[(UINT16)VirtualPageNumber]
 				& PTBL_VALID_BIT) == 0) {
 			//printf("pagetable in Z502: %d\n", GetPageTableAddress());
-			printf("bit value in Z502: %d\n", GetPageTableAddress()[(UINT16)VirtualPageNumber]);
+		//	printf("bit value in Z502: %d\n", GetPageTableAddress()[(UINT16)VirtualPageNumber]);
 			//printf("VirtualPageNumber: %d\n", VirtualPageNumber);
 			invalidity = 4;
 		}
@@ -356,7 +356,7 @@ void MemoryCommon(INT32 VirtualAddress, char *data_ptr, BOOL read_or_write) {
 		data_ptr[2] = MEMORY[PhysicalAddress[2]];
 		data_ptr[3] = MEMORY[PhysicalAddress[3]];
 
-		printf("z502 mem Read: %d\n", data_ptr[0]);
+		//printf("z502 mem Read: %d\n", data_ptr[0]);
 
 		ptbl_bits = PTBL_REFERENCED_BIT;
 	}
@@ -754,6 +754,7 @@ void PhysicalMemoryCommon(INT32 PhysicalPageNumber, char *data_ptr,
 	// then return with no modification to the user's buffer.
 	if (PhysicalPageNumber < 0 || PhysicalPageNumber > PHYS_MEM_PGS) {
 		ReleaseLock(HardwareLock, Debug_Text);
+		printf("z502: PhysicalPageNumber: %d\n", PhysicalPageNumber);
 		HardwareFault(INVALID_PHYSICAL_MEMORY, PhysicalPageNumber);
 		return;
 	}

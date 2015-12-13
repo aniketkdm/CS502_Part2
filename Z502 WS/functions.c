@@ -260,7 +260,7 @@ Simple Bubble Sort mechanism is implemented
 void sort_ready_queue()
 {
 	ready_queue *temp; ready_queue *before, *after, *mover;
-	int i, j;
+	int i, j,z;
 	PCB_stack *tmp;
 	char p;
 
@@ -289,7 +289,7 @@ void sort_ready_queue()
 			temp = front_ready_queue;
 			for (j = 1; j <= count_ready_queue - i; j++)
 			{
-				//CALL(50);
+				CALL(50);
 
 				if (temp->current_ready_process_addr->priority > temp->next_ready_process->current_ready_process_addr->priority)
 				{
@@ -316,24 +316,32 @@ void sort_ready_queue()
 				//Message("temp process name: %s\n", temp->current_ready_process_addr->process_name);
 
 				CALL(100);
+				z = count_ready_queue;
 
 				mover = front_ready_queue;
-				while (mover->next_ready_process != NULL)
+				//while (mover->next_ready_process != NULL)
+				while(z != 1 && mover->next_ready_process != NULL)
 				{
 					mover = mover->next_ready_process;
+					z--;
 				}
 
 				
 				//CALL(100);
+				
+
+				z = count_ready_queue;
 
 				rear_ready_queue = mover;
 
 				//CALL(100);
 
-				while (mover->prev_ready_process != NULL)
+				//while (mover->prev_ready_process != NULL)
+				while(z != 1 && mover->prev_ready_process != NULL)
 				{
 					//printf("%s %s\n", mover->current_ready_process_addr->process_name, mover->prev_ready_process->current_ready_process_addr->process_name);
 					mover = mover->prev_ready_process;
+					z--;
 					
 				}
 				front_ready_queue = mover;

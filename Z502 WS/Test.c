@@ -1548,7 +1548,7 @@ void test2f(void) {
 	GET_PROCESS_ID("", &OurProcessID, &ErrorReturned);
 	printf("\n\nRelease %s:Test 2f: Pid %ld\n", CURRENT_REL, OurProcessID);
 
-	/*for (int i = 0; i < 65; i++)
+	/*for (int i = 0; i < 72; i++)
 	{
 		MemoryAddress = 16 * i;
 		DataWritten = i;
@@ -1557,7 +1557,7 @@ void test2f(void) {
 
 	//TERMINATE_PROCESS(-2, &ErrorReturned);
 
-	/*for (int i = 0; i < 65; i++)
+	/*for (int i = 0; i < 72; i++)
 	{
 		MemoryAddress = 16 * i;
 		
@@ -1571,7 +1571,9 @@ void test2f(void) {
 		{
 			printf("Incorrect Data Read: %d %d\n", i, DataRead);
 		}
-	}*/
+	}
+
+	TERMINATE_PROCESS(-2, &ErrorReturned);*/
 
 	/*MEM_READ(1040, &DataRead);
 
@@ -1686,9 +1688,9 @@ void test2g(void) {
 	GET_PROCESS_ID("", &OurProcessID, &ErrorReturned);
 	printf("\n\nRelease %s:Test 2g: Pid %ld\n", CURRENT_REL, OurProcessID);
 	CREATE_PROCESS("test2g_a", test2f, PRIORITY2G, &ProcessID1, &ErrorReturned);
-	CREATE_PROCESS("test2g_b", test2f, PRIORITY2G, &ProcessID2, &ErrorReturned);
-	CREATE_PROCESS("test2g_c", test2f, PRIORITY2G, &ProcessID3, &ErrorReturned);
-	CREATE_PROCESS("test2g_d", test2f, PRIORITY2G, &ProcessID4, &ErrorReturned);
+	//CREATE_PROCESS("test2g_b", test2f, PRIORITY2G, &ProcessID2, &ErrorReturned);
+	//CREATE_PROCESS("test2g_c", test2f, PRIORITY2G, &ProcessID3, &ErrorReturned);
+	//CREATE_PROCESS("test2g_d", test2f, PRIORITY2G, &ProcessID4, &ErrorReturned);
 	//CREATE_PROCESS("test2g_e", test2f, PRIORITY2G, &ProcessID5, &ErrorReturned);
 	SuccessExpected(ErrorReturned, "CREATE_PROCESS");
 
@@ -1704,7 +1706,9 @@ void test2g(void) {
 		GET_PROCESS_ID("test2g_a", &ProcessID1, &ErrorReturned);
 	}
 
-	//TERMINATE_PROCESS(-2, &ErrorReturned);
+	printf("test2g ending\n");
+
+	TERMINATE_PROCESS(-2, &ErrorReturned);
 
 	ErrorReturned = ERR_SUCCESS;
 	while (ErrorReturned == ERR_SUCCESS) {
@@ -1728,7 +1732,7 @@ void test2g(void) {
 		GET_PROCESS_ID("test2g_d", &ProcessID4, &ErrorReturned);
 	}
 
-	TERMINATE_PROCESS(-2, &ErrorReturned);
+	//TERMINATE_PROCESS(-2, &ErrorReturned);
 
 	ErrorReturned = ERR_SUCCESS;
 	while (ErrorReturned == ERR_SUCCESS) {
